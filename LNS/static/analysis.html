@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LNS · 命理透视</title>
-  <link rel="stylesheet" href="/static/ui-shell.css">
+  <link rel="stylesheet" href="ui-shell.css?v=20260702-ui2">
 </head>
 <body class="ui-shell app-page app-page--analysis">
   <header class="shell-header">
     <div class="shell-header__inner">
       <a class="brand" href="home.html">
         <span class="brand__mark">
-          <img src="/static/assets/lns-logo-icon.svg" alt="LNS logo">
+          <img src="assets/lns-logo-icon.svg" alt="LNS logo">
         </span>
-        <img class="brand__wordmark" src="/static/assets/lns-logo-wordmark.svg" alt="LNS Life Navigation System">
+        <img class="brand__wordmark" src="assets/lns-logo-wordmark.svg" alt="LNS Life Navigation System">
       </a>
       <nav class="primary-nav">
         <a class="primary-nav__link" data-nav href="home.html">首页</a>
@@ -47,14 +47,29 @@
     </section>
 
     <section class="app-card explain-card">
-      <div class="card-kicker">结构来源</div>
-      <h1 class="app-section-title" data-analysis-title>命理透视</h1>
-      <p class="explain-copy" data-analysis-summary>这一页解释当前趋势从哪里来，先看命盘结构，再看五行强弱和行为倾向。</p>
+      <div class="card-kicker">当前结构判断</div>
+      <h1 class="app-section-title" data-analysis-title>主动突破强，执行节奏需要稳定</h1>
+      <p class="explain-copy" data-analysis-summary>适合推进已有计划，不适合频繁改方向。先把关键事项做深，再考虑扩张。</p>
+    </section>
+
+    <section class="insight-grid">
+      <article class="app-card insight-card">
+        <div class="mini-label">优势</div>
+        <p data-analysis-advantage>行动力强，适合开局与突破。</p>
+      </article>
+      <article class="app-card insight-card">
+        <div class="mini-label">风险</div>
+        <p data-analysis-risk>容易高估推进速度，规则成本会上升。</p>
+      </article>
+      <article class="app-card insight-card">
+        <div class="mini-label">建议</div>
+        <p data-analysis-advice>保留试错空间，重大事项分阶段验证。</p>
+      </article>
     </section>
 
     <section class="app-card explain-card">
       <div class="card-head card-head--between">
-        <div class="card-kicker">命局结构</div>
+        <div class="card-kicker">专业结构</div>
         <a class="panel-nav__link" href="kline.html">K线总览</a>
       </div>
       <p class="section-subtitle" data-analysis-structure-summary>日主、四柱与十神结构会共同影响当前阶段的表达方式。</p>
@@ -97,7 +112,7 @@
     </section>
 
     <section class="app-card explain-card">
-      <div class="card-kicker">性格与倾向</div>
+      <div class="card-kicker">行为倾向</div>
       <ul class="list" data-behavior-points>
         <li>正在读取性格与倾向分析。</li>
       </ul>
@@ -151,6 +166,6 @@
     </nav>
   </main>
 
-  <script src="/static/ui-shell.js"></script>
+  <script src="ui-shell.js?v=20260702-ui2"></script>
 </body>
 </html>

@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LNS · 生成入口</title>
-  <link rel="stylesheet" href="/static/ui-shell.css">
+  <link rel="stylesheet" href="ui-shell.css?v=20260702-ui2">
 </head>
 <body class="ui-shell app-page app-page--form">
   <header class="shell-header">
     <div class="shell-header__inner">
       <a class="brand" href="home.html">
         <span class="brand__mark">
-          <img src="/static/assets/lns-logo-icon.svg" alt="LNS logo">
+          <img src="assets/lns-logo-icon.svg" alt="LNS logo">
         </span>
-        <img class="brand__wordmark" src="/static/assets/lns-logo-wordmark.svg" alt="LNS Life Navigation System">
+        <img class="brand__wordmark" src="assets/lns-logo-wordmark.svg" alt="LNS Life Navigation System">
       </a>
       <nav class="primary-nav">
         <a class="primary-nav__link" data-nav href="home.html">首页</a>
@@ -44,13 +44,13 @@
 
     <section class="app-page-head app-page-head--compact">
       <h1 class="app-name app-name--lg">你的出生信息</h1>
-      <p class="app-subline">用于精算八字命盘，信息仅服务于你</p>
+      <p class="app-subline">出生时间越准确，趋势分析越稳定。</p>
     </section>
 
     <form id="birthProfileForm" class="birth-form">
       <div class="field field--full">
-        <label for="name">姓名 <span class="field-required">*</span></label>
-        <input id="name" name="name" type="text" placeholder="李明" required>
+        <label for="name">姓名（选填）</label>
+        <input id="name" name="name" type="text" placeholder="用于报告称呼">
       </div>
 
       <div class="field field--full">
@@ -70,11 +70,17 @@
       <div class="form-row">
         <div class="field">
           <label for="birthDate">出生日期 <span class="field-required">*</span></label>
-          <input id="birthDate" name="birthDate" type="date" required>
+          <input id="birthDate" name="birthDate" type="hidden">
+          <button class="picker-trigger" type="button" data-picker-open="date" aria-label="选择出生日期">
+            <span data-picker-date-label>选择出生日期</span>
+          </button>
         </div>
         <div class="field">
           <label for="birthTime">出生时间 <span class="field-required">*</span></label>
-          <input id="birthTime" name="birthTime" type="time" required>
+          <input id="birthTime" name="birthTime" type="hidden">
+          <button class="picker-trigger" type="button" data-picker-open="time" aria-label="选择出生时间">
+            <span data-picker-time-label>选择出生时间</span>
+          </button>
         </div>
       </div>
       <p class="field-hint">时间影响时柱，精确到小时即可。</p>
@@ -113,8 +119,8 @@
 
       <div class="form-actions form-actions--stacked">
         <p class="muted" data-create-status hidden></p>
-        <button class="btn btn--primary btn--full" type="submit">生成我的命盘</button>
-        <p class="fineprint">基于八字精算，结果专属于你</p>
+        <button class="btn btn--primary btn--full" type="submit" data-create-submit>生成并查看结果</button>
+        <p class="fineprint">用于生成命盘结构与趋势分析。</p>
       </div>
     </form>
 
@@ -142,6 +148,6 @@
     </nav>
   </main>
 
-  <script src="/static/ui-shell.js"></script>
+  <script src="ui-shell.js?v=20260702-ui2"></script>
 </body>
 </html>

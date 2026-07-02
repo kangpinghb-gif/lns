@@ -423,6 +423,91 @@
     return "风险常规，可按当前节奏推进";
   }
 
+  function buildUserSummary(state) {
+    var energy = state && state.energy_level ? state.energy_level : "medium";
+    var risk = state && state.risk_level ? state.risk_level : "normal";
+    if (risk === "high" && energy === "high") {
+      return {
+        title: "当前推进力较强，但风险需要控制",
+        copy: "适合处理核心事项，不适合同时扩大多个投入。先验证关键判断，再决定是否加速。",
+        advice: "把目标拆成小步骤，优先做最关键的一件事。"
+      };
+    }
+    if (risk === "high") {
+      return {
+        title: "当前风险偏高，先收敛节奏",
+        copy: "压力和不确定性同步上升，关键决策建议延后或拆小。",
+        advice: "减少临时承诺，保留缓冲时间。"
+      };
+    }
+    if (risk === "elevated") {
+      return {
+        title: "当前可以推进，但需要预留缓冲",
+        copy: "整体节奏可控，但执行过程中容易出现额外消耗。",
+        advice: "推进前先设定边界，避免把计划做得过满。"
+      };
+    }
+    if (energy === "high") {
+      return {
+        title: "当前推进窗口打开",
+        copy: "行动力和外部响应较强，适合把已有计划往前推一步。",
+        advice: "优先推进已经验证过的事项。"
+      };
+    }
+    if (energy === "low") {
+      return {
+        title: "当前更适合蓄力和整理",
+        copy: "不必急着扩大投入，先降低消耗、修正节奏。",
+        advice: "先复盘、整理资源，再进入下一轮推进。"
+      };
+    }
+    return {
+      title: "当前节奏平稳，适合按计划推进",
+      copy: "没有明显的极端信号，重点是保持稳定执行。",
+      advice: "按既定计划推进，同时保留必要调整空间。"
+    };
+  }
+
+  function buildAnalysisInsights(state, time, synth) {
+    var summary = buildUserSummary(state);
+    var focus = safeArray(time && time.T0 && time.T0.recommended_focus);
+    var risks = safeArray(synth && synth.synthesized_risk);
+    var capabilities = safeArray(state && state.capability_profile);
+    return {
+      advantage: capabilities.slice(0, 2).join(" / ") || "行动力和结构感较强，适合推进已有计划。",
+      risk: risks.slice(0, 2).join(" / ") || mapRiskNote(state && state.risk_level),
+      advice: focus.slice(0, 2).join(" / ") || summary.advice
+    };
+  }
+
+  function translateTenGodKey(key) {
+    var map = {
+      year: "年柱",
+      month: "月柱",
+      day: "日柱",
+      hour: "时柱"
+    };
+    return map[key] || key;
+  }
+
+  function buildYearHeadline(year, overview, riskAnalysis) {
+    var energyText = mapLevelLabel(overview && overview.energy);
+    var riskText = mapLevelLabel((overview && overview.risk) || (riskAnalysis && riskAnalysis.level));
+    if (energyText === "高" && riskText === "高") return year + " 年机会高，但风险也高";
+    if (riskText === "高" || riskText === "偏高") return year + " 年需要控制节奏";
+    if (energyText === "高") return year + " 年适合主动推进";
+    return year + " 年以稳步推进为主";
+  }
+
+  function buildYearSummary(overview, yearlyDirection, riskAnalysis) {
+    var focus = safeArray(yearlyDirection && yearlyDirection.strategic_focus).slice(0, 2).join(" / ");
+    var risk = safeArray(riskAnalysis && riskAnalysis.synthesized_risks).slice(0, 1).join(" / ");
+    if (focus && risk) return "适合" + focus + "，但要注意" + risk + "。";
+    if (focus) return "适合" + focus + "，重点是控制节奏，不要同时开启太多事项。";
+    if (risk) return "年度风险集中在" + risk + "，建议先验证再放大。";
+    return "适合主动推进，但要控制节奏，避免同时开启太多事项。";
+  }
+
   function buildStageNote(state, time) {
     var parts = [];
     if (state && state.current_stage) parts.push("当前处于" + state.current_stage);
@@ -743,6 +828,224 @@
     return false;
   }
 
+  function pad2(value) {
+    return String(value).padStart(2, "0");
+  }
+
+  function daysInMonth(year, month) {
+    return new Date(year, month, 0).getDate();
+  }
+
+  function clampNumber(value, min, max) {
+    var num = Number(value);
+    if (!Number.isFinite(num)) return min;
+    return Math.max(min, Math.min(max, num));
+  }
+
+  function initBirthWheelPicker(createForm, setStatus) {
+    var dateInput = createForm.birthDate;
+    var timeInput = createForm.birthTime;
+    var dateTrigger = document.querySelector('[data-picker-open="date"]');
+    var timeTrigger = document.querySelector('[data-picker-open="time"]');
+    var dateLabel = document.querySelector("[data-picker-date-label]");
+    var timeLabel = document.querySelector("[data-picker-time-label]");
+    if (!dateInput || !timeInput || !dateTrigger || !timeTrigger) return;
+
+    var currentYear = new Date().getFullYear();
+    var pickerState = {
+      kind: "date",
+      year: 1990,
+      month: 1,
+      day: 1,
+      hour: 8,
+      minute: 0
+    };
+    var scrollTimers = {};
+
+    var picker = document.createElement("div");
+    picker.className = "wheel-picker";
+    picker.hidden = true;
+    picker.innerHTML =
+      '<div class="wheel-picker__panel" role="dialog" aria-modal="true">' +
+        '<div class="wheel-picker__head">' +
+          '<button class="wheel-picker__action" type="button" data-picker-cancel>取消</button>' +
+          '<div class="wheel-picker__title" data-picker-title>选择出生日期</div>' +
+          '<button class="wheel-picker__action" type="button" data-picker-confirm>完成</button>' +
+        '</div>' +
+        '<div class="wheel-picker__cols" data-picker-cols></div>' +
+      '</div>';
+    document.body.appendChild(picker);
+
+    var titleNode = picker.querySelector("[data-picker-title]");
+    var colsNode = picker.querySelector("[data-picker-cols]");
+    var cancelButton = picker.querySelector("[data-picker-cancel]");
+    var confirmButton = picker.querySelector("[data-picker-confirm]");
+
+    function parseExistingValues() {
+      var dateMatch = String(dateInput.value || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (dateMatch) {
+        pickerState.year = clampNumber(dateMatch[1], 1900, currentYear);
+        pickerState.month = clampNumber(dateMatch[2], 1, 12);
+        pickerState.day = clampNumber(dateMatch[3], 1, daysInMonth(pickerState.year, pickerState.month));
+      }
+      var timeMatch = String(timeInput.value || "").match(/^(\d{2}):(\d{2})$/);
+      if (timeMatch) {
+        pickerState.hour = clampNumber(timeMatch[1], 0, 23);
+        pickerState.minute = clampNumber(timeMatch[2], 0, 59);
+      }
+    }
+
+    function updateTriggerLabels() {
+      if (dateInput.value) {
+        dateLabel.textContent = dateInput.value.replace(/-/g, " / ");
+        dateTrigger.classList.add("has-value");
+      } else {
+        dateLabel.textContent = "选择出生日期";
+        dateTrigger.classList.remove("has-value");
+      }
+      if (timeInput.value) {
+        timeLabel.textContent = timeInput.value;
+        timeTrigger.classList.add("has-value");
+      } else {
+        timeLabel.textContent = "选择出生时间";
+        timeTrigger.classList.remove("has-value");
+      }
+    }
+
+    function makeColumn(key, values, formatter) {
+      var col = document.createElement("div");
+      var track = document.createElement("div");
+      col.className = "wheel-picker__col";
+      track.className = "wheel-picker__track";
+      col.setAttribute("data-picker-key", key);
+      var touchStartY = null;
+
+      function applyIndex(index, shouldRender) {
+        var safeIndex = Math.max(0, Math.min(values.length - 1, index));
+        pickerState[key] = values[safeIndex];
+        track.style.transform = "translateY(" + (66 - safeIndex * 44) + "px)";
+        track.querySelectorAll(".wheel-picker__option").forEach(function (node, nodeIndex) {
+          node.classList.toggle("is-selected", nodeIndex === safeIndex);
+        });
+        if (shouldRender && (key === "year" || key === "month")) {
+          pickerState.day = Math.min(pickerState.day, daysInMonth(pickerState.year, pickerState.month));
+          renderPicker();
+        }
+      }
+
+      values.forEach(function (value) {
+        var item = document.createElement("div");
+        item.className = "wheel-picker__option";
+        item.setAttribute("data-picker-value", String(value));
+        item.textContent = formatter ? formatter(value) : String(value);
+        item.addEventListener("click", function () {
+          applyIndex(values.indexOf(value), true);
+        });
+        track.appendChild(item);
+      });
+      col.appendChild(track);
+      col.selectPickerValue = function (value) {
+        var index = values.findIndex(function (item) { return String(item) === String(value); });
+        applyIndex(index < 0 ? 0 : index, false);
+      };
+      col.addEventListener("wheel", function (event) {
+        event.preventDefault();
+        window.clearTimeout(scrollTimers[key]);
+        scrollTimers[key] = window.setTimeout(function () {
+          var currentIndex = values.findIndex(function (item) { return String(item) === String(pickerState[key]); });
+          applyIndex(currentIndex + (event.deltaY > 0 ? 1 : -1), true);
+        }, 20);
+      }, { passive: false });
+      col.addEventListener("touchstart", function (event) {
+        touchStartY = event.touches && event.touches[0] ? event.touches[0].clientY : null;
+      }, { passive: true });
+      col.addEventListener("touchend", function (event) {
+        if (touchStartY == null || !event.changedTouches || !event.changedTouches[0]) return;
+        var delta = touchStartY - event.changedTouches[0].clientY;
+        var steps = Math.round(delta / 36);
+        if (steps !== 0) {
+          var currentIndex = values.findIndex(function (item) { return String(item) === String(pickerState[key]); });
+          applyIndex(currentIndex + steps, true);
+        }
+        touchStartY = null;
+      });
+      return col;
+    }
+
+    function scrollColumnToValue(col, value) {
+      if (typeof col.selectPickerValue === "function") {
+        col.selectPickerValue(value);
+      }
+    }
+
+    function renderPicker() {
+      var columns = [];
+      colsNode.innerHTML = "";
+      if (pickerState.kind === "date") {
+        titleNode.textContent = "选择出生日期";
+        var years = [];
+        for (var year = 1900; year <= currentYear; year += 1) years.push(year);
+        var months = [];
+        for (var month = 1; month <= 12; month += 1) months.push(month);
+        var days = [];
+        for (var day = 1; day <= daysInMonth(pickerState.year, pickerState.month); day += 1) days.push(day);
+        columns = [
+          makeColumn("year", years, function (value) { return value + "年"; }),
+          makeColumn("month", months, function (value) { return pad2(value) + "月"; }),
+          makeColumn("day", days, function (value) { return pad2(value) + "日"; })
+        ];
+      } else {
+        titleNode.textContent = "选择出生时间";
+        var hours = [];
+        for (var hour = 0; hour <= 23; hour += 1) hours.push(hour);
+        var minutes = [];
+        for (var minute = 0; minute <= 59; minute += 1) minutes.push(minute);
+        columns = [
+          makeColumn("hour", hours, function (value) { return pad2(value) + "时"; }),
+          makeColumn("minute", minutes, function (value) { return pad2(value) + "分"; })
+        ];
+      }
+      colsNode.style.setProperty("--picker-cols", String(columns.length));
+      columns.forEach(function (col) {
+        colsNode.appendChild(col);
+        scrollColumnToValue(col, pickerState[col.getAttribute("data-picker-key")]);
+      });
+    }
+
+    function openPicker(kind) {
+      parseExistingValues();
+      pickerState.kind = kind;
+      picker.hidden = false;
+      renderPicker();
+    }
+
+    function closePicker() {
+      picker.hidden = true;
+    }
+
+    function confirmPicker() {
+      if (pickerState.kind === "date") {
+        dateInput.value = pickerState.year + "-" + pad2(pickerState.month) + "-" + pad2(pickerState.day);
+      } else {
+        timeInput.value = pad2(pickerState.hour) + ":" + pad2(pickerState.minute);
+      }
+      updateTriggerLabels();
+      if (typeof setStatus === "function") setStatus("", "info");
+      closePicker();
+    }
+
+    dateTrigger.addEventListener("click", function () { openPicker("date"); });
+    timeTrigger.addEventListener("click", function () { openPicker("time"); });
+    cancelButton.addEventListener("click", closePicker);
+    confirmButton.addEventListener("click", confirmPicker);
+    picker.addEventListener("click", function (event) {
+      if (event.target === picker) closePicker();
+    });
+
+    updateTriggerLabels();
+    createForm.updateBirthPickerLabels = updateTriggerLabels;
+  }
+
   async function initCreatePage() {
     var createForm = document.getElementById("birthProfileForm");
     if (!createForm) return;
@@ -751,6 +1054,13 @@
     var submitButton = createForm.querySelector('button[type="submit"]');
     var profile = getBirthProfile();
     var nextPage = new URLSearchParams(window.location.search).get("next") || "kline.html";
+
+    if (submitButton) {
+      if (nextPage === "analysis.html") submitButton.textContent = "生成并查看命理透视";
+      else if (nextPage === "year-detail.html") submitButton.textContent = "生成并查看流年详情";
+      else if (nextPage === "kline.html") submitButton.textContent = "生成并查看趋势";
+      else submitButton.textContent = "生成并查看结果";
+    }
 
     if (profile) {
       if (createForm.name) createForm.name.value = profile.name || "";
@@ -769,8 +1079,9 @@
       statusNode.setAttribute("data-status-kind", kind || "info");
     }
 
-    if (!isProfileComplete(profile) && new URLSearchParams(window.location.search).get("next")) {
-      setStatus("请先生成命盘，再查看结果页。", "info");
+    initBirthWheelPicker(createForm, setStatus);
+    if (typeof createForm.updateBirthPickerLabels === "function") {
+      createForm.updateBirthPickerLabels();
     }
 
     createForm.addEventListener("submit", async function (event) {
@@ -778,6 +1089,15 @@
       var formData = new FormData(createForm);
       var profile = normalizeProfileFromForm(formData);
       var userId = localStorage.getItem("lns.userId") || "";
+
+      if (!profile.birthDate) {
+        setStatus("请选择出生日期。", "error");
+        return;
+      }
+      if (!profile.birthTime) {
+        setStatus("请选择出生时间。", "error");
+        return;
+      }
 
       saveBirthProfile(profile);
       localStorage.setItem("lns.currentAge", String(calcAge(profile.birthDate)));
@@ -795,7 +1115,7 @@
         var reportResp = await generateReport(profile, userId, "decade");
         localStorage.setItem("lns.lastReport", JSON.stringify(reportResp.data));
         localStorage.setItem("lns.lastReportType", "decade");
-        setStatus("已生成报告，正在进入人生 K 线页。", "success");
+        setStatus("已生成报告，正在进入结果页。", "success");
         window.location.href = isResultPage(nextPage) ? nextPage : "kline.html";
       } catch (error) {
         if (submitButton) submitButton.disabled = false;
@@ -822,6 +1142,7 @@
       var emptyStageRangeNode = document.querySelector("[data-home-current-stage-range]");
       var emptyWindowNode = document.querySelector("[data-home-window]");
       var emptyActionNode = document.querySelector("[data-home-action]");
+      var emptyActionCopyNode = document.querySelector("[data-home-action-copy]");
       var emptyActionTimeNode = document.querySelector("[data-home-action-time]");
       var emptyTrendNode = document.querySelector("[data-home-trend]");
       var emptyTrendNoteNode = document.querySelector("[data-home-trend-note]");
@@ -838,6 +1159,7 @@
       if (emptyStageRangeNode) emptyStageRangeNode.textContent = "";
       if (emptyWindowNode) emptyWindowNode.textContent = "待生成";
       if (emptyActionNode) emptyActionNode.textContent = "先生成你的命盘";
+      if (emptyActionCopyNode) emptyActionCopyNode.textContent = "用出生时间建立基础命盘，再查看当前阶段、风险提醒和年度建议。";
       if (emptyActionTimeNode) emptyActionTimeNode.textContent = "填写出生信息";
       if (emptyTrendNode) emptyTrendNode.textContent = "待生成";
       if (emptyTrendNoteNode) emptyTrendNoteNode.textContent = "生成后显示趋势";
@@ -874,6 +1196,7 @@
     var riskNode = document.querySelector("[data-home-risk]");
     var riskNoteNode = document.querySelector("[data-home-risk-note]");
     var actionTimeNode = document.querySelector("[data-home-action-time]");
+    var actionCopyNode = document.querySelector("[data-home-action-copy]");
 
     if (nameNode) {
       nameNode.textContent = profile && profile.name ? profile.name : "李明";
@@ -902,6 +1225,9 @@
     if (actionNode) {
       actionNode.textContent = (safeArray(decision.P0).length && decision.P0[0]) ||
         "完善简历，针对创新类岗位定向投递";
+    }
+    if (actionCopyNode) {
+      actionCopyNode.textContent = buildUserSummary(state).advice;
     }
     if (actionTimeNode) {
       actionTimeNode.textContent = "本月内完成";
@@ -1004,11 +1330,11 @@
     }
 
     if (titleNode) {
-      titleNode.textContent = report ? (report.title || "人生导航大运报告") : "人生 K 线总览";
+      titleNode.textContent = report ? (report.title || "趋势图已生成，先看当前节奏") : "趋势图已生成，先看当前节奏";
     }
 
     if (summaryNode) {
-      summaryNode.textContent = report ? reportContentToText(report) : "基于真实分析接口生成的趋势总览，当前页面会先展示总体结构，再结合出生信息构建趋势图。";
+      summaryNode.textContent = report ? reportContentToText(report) : "后端分析不可用时，先展示本地趋势骨架；接入分析结果后会自动补全能量、风险和行动建议。";
     }
 
     if (sourceNode) {
@@ -1093,10 +1419,16 @@
       }
       if (actionNode) {
         var focus = safeArray((time.T0 && time.T0.recommended_focus) || state.capability_profile);
-        actionNode.textContent = focus.length ? focus.slice(0, 2).join(" / ") : "查看命理透视";
+        actionNode.textContent = focus.length ? "建议：" + focus.slice(0, 2).join(" / ") : buildUserSummary(state).advice;
       }
+      if (titleNode) titleNode.textContent = buildUserSummary(state).title;
+      if (summaryNode) summaryNode.textContent = buildUserSummary(state).copy;
+      if (sourceNode) sourceNode.textContent = getCurrentAnchor(bazi, state, currentAge);
     } else {
-      renderTrendChart(chartNode, buildTrendPoints(null, report));
+      var fallbackPoints = buildTrendPoints(null, report);
+      renderTrendChart(chartNode, fallbackPoints);
+      renderKlineAxis(axisNode, fallbackPoints);
+      renderKlineInfo(klineInfoNode, fallbackPoints[0]);
       if (loadingNode) loadingNode.textContent = "暂未接入后端分析接口，显示本地结构图。";
     }
   }
@@ -1135,15 +1467,20 @@
     var elementsSummaryNode = document.querySelector("[data-elements-summary]");
     var fourPillarsNode = document.querySelector("[data-four-pillars]");
     var anchorNode = document.querySelector("[data-analysis-anchor]");
+    var advantageNode = document.querySelector("[data-analysis-advantage]");
+    var riskNode = document.querySelector("[data-analysis-risk]");
+    var adviceNode = document.querySelector("[data-analysis-advice]");
+    var userSummary = buildUserSummary(state);
+    var insights = buildAnalysisInsights(state, time, synth);
 
     if (titleNode) {
-      titleNode.textContent = (bazi.day_master || "命盘") + "日主命理透视";
+      titleNode.textContent = userSummary.title;
     }
     if (anchorNode) {
       anchorNode.textContent = getCurrentAnchor(bazi, state, currentAge);
     }
     if (summaryNode) {
-      summaryNode.textContent = "这一页解释当前趋势来源：先看命盘结构，再看五行强弱、行为倾向和当前阶段判断。";
+      summaryNode.textContent = userSummary.copy;
     }
     if (structureSummaryNode) {
       structureSummaryNode.textContent = "日主 " + (bazi.day_master || "未识别") + "，主导结构 " + (state.dominant_structure || "未识别") + "。";
@@ -1154,6 +1491,9 @@
     if (fourPillarsNode) {
       renderFourPillars(fourPillarsNode, bazi.four_pillars);
     }
+    if (advantageNode) advantageNode.textContent = insights.advantage;
+    if (riskNode) riskNode.textContent = insights.risk;
+    if (adviceNode) adviceNode.textContent = insights.advice;
 
     var elements = bazi.normalized_elements || {};
     ["wood", "fire", "earth", "metal", "water"].forEach(function (key) {
@@ -1167,7 +1507,7 @@
     if (state.dominant_structure) structurePoints.push("当前主导结构为“" + state.dominant_structure + "”，会直接影响行为方式与阶段感受。");
     if (Object.keys(tenGods).length) {
       structurePoints.push("十神落位：" + Object.keys(tenGods).map(function (key) {
-        return key + "位" + tenGods[key];
+        return translateTenGodKey(key) + " " + tenGods[key];
       }).join("，") + "。");
     }
     if (safeArray(bazi.deities).length) {
@@ -1256,16 +1596,14 @@
     var capabilityAnalysis = (content && content.capability_analysis) || {};
     var riskAnalysis = (content && content.risk_analysis) || {};
 
-    if (titleNode) titleNode.textContent = year + " 年流年详情";
+    if (titleNode) titleNode.textContent = buildYearHeadline(year, overview, riskAnalysis);
     if (summaryNode) {
-      summaryNode.textContent = content && content.title
-        ? content.title + "。这一页只解释当前年度，不展开全部年份。"
-        : "当前年度年报已生成。";
+      summaryNode.textContent = buildYearSummary(overview, yearlyDirection, riskAnalysis);
     }
 
-    if (overviewNode) overviewNode.textContent = mapLevelLabel(overview.energy) + " / 风险" + mapLevelLabel(overview.risk);
+    if (overviewNode) overviewNode.textContent = mapLevelLabel(overview.energy);
     if (overviewNoteNode) {
-      overviewNoteNode.textContent = "阶段：" + (overview.stage || "未识别") + "，主导结构：" + (overview.dominant || "未识别") + "。";
+      overviewNoteNode.textContent = "适合主动推进，先验证再放大。";
     }
 
     if (careerNode) careerNode.textContent = yearlyDirection.direction || "待观察";
@@ -1282,15 +1620,15 @@
 
     if (healthNode) healthNode.textContent = mapLevelLabel(riskAnalysis.level);
     if (healthNoteNode) {
-      healthNoteNode.textContent = safeArray(riskAnalysis.synthesized_risks).slice(0, 2).join(" / ") || "当前暂无额外风险提示。";
+      healthNoteNode.textContent = safeArray(riskAnalysis.synthesized_risks).slice(0, 2).join(" / ") || "控制节奏，避免过度承诺。";
     }
 
     var guidance = [];
     if (safeArray(yearlyDirection.strategic_focus).length) {
-      guidance.push("宜：" + safeArray(yearlyDirection.strategic_focus).join(" / "));
+      guidance.push("适合：" + safeArray(yearlyDirection.strategic_focus).join(" / "));
     }
     if (safeArray(yearlyDirection.avoidance).length) {
-      guidance.push("忌：" + safeArray(yearlyDirection.avoidance).join(" / "));
+      guidance.push("避免：" + safeArray(yearlyDirection.avoidance).join(" / "));
     }
     if (safeArray(riskAnalysis.constraints).length) {
       guidance.push("风险提示：" + safeArray(riskAnalysis.constraints).join(" / "));

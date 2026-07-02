@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LNS · 首页</title>
-  <link rel="stylesheet" href="/static/ui-shell.css">
+  <link rel="stylesheet" href="ui-shell.css?v=20260702-ui2">
 </head>
 <body class="ui-shell app-page app-page--home">
   <header class="shell-header">
     <div class="shell-header__inner">
       <a class="brand" href="home.html">
         <span class="brand__mark">
-          <img src="/static/assets/lns-logo-icon.svg" alt="LNS logo">
+          <img src="assets/lns-logo-icon.svg" alt="LNS logo">
         </span>
-        <img class="brand__wordmark" src="/static/assets/lns-logo-wordmark.svg" alt="LNS Life Navigation System">
+        <img class="brand__wordmark" src="assets/lns-logo-wordmark.svg" alt="LNS Life Navigation System">
       </a>
       <nav class="primary-nav">
         <a class="primary-nav__link" data-nav href="home.html">首页</a>
@@ -34,7 +34,7 @@
       </span>
     </section>
 
-    <section class="app-strip" data-home-anchor>日主丁火 · 伤官格 · 庚午大运 <span>›</span></section>
+    <section class="app-strip" data-home-anchor>输入出生信息 · 生成个人趋势 · 查看行动建议 <span>›</span></section>
 
     <section class="app-page-head">
       <div class="app-title-row">
@@ -43,14 +43,23 @@
           <svg viewBox="0 0 24 24"><path d="M15 17H9"/><path d="M10 19a2 2 0 0 0 4 0"/><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/></svg>
         </button>
       </div>
-      <p class="app-greeting">早安,</p>
-      <h1 class="app-name" data-home-name>李明</h1>
-      <p class="app-subline" data-home-stage>今天是壬子日 · 处于结构建立期</p>
+      <h1 class="app-name" data-home-name>输入出生信息</h1>
+      <p class="app-subline" data-home-stage>生成你的命盘结构、阶段状态、年度趋势与行动建议。</p>
+    </section>
+
+    <section class="app-card app-card--action app-card--primary-cta">
+      <div class="status-chip">第一步</div>
+      <h2 class="action-title" data-home-action>生成你的个人趋势图</h2>
+      <p class="action-copy" data-home-action-copy>用出生时间建立基础命盘，再查看当前阶段、风险提醒和年度建议。</p>
+      <div class="action-foot">
+        <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-home-action-time>约 1 分钟完成</span></span>
+        <a class="text-link" data-home-why href="create.html">立即生成 <span>→</span></a>
+      </div>
     </section>
 
     <section class="app-card app-card--energy">
       <div class="card-head">
-        <div class="card-kicker">今日能量</div>
+        <div class="card-kicker">当前状态</div>
         <span class="status-pill status-pill--warning" data-home-window>行动窗口开启</span>
       </div>
       <div class="energy-row">
@@ -62,15 +71,6 @@
         <span>当前阶段：</span>
         <strong data-home-current-stage>结构建立期</strong>
         <span class="muted" data-home-current-stage-range>（26–35岁）</span>
-      </div>
-    </section>
-
-    <section class="app-card app-card--action">
-      <div class="status-chip">P0 · 立即执行</div>
-      <h2 class="action-title" data-home-action>完善简历，针对创新类岗位定向投递</h2>
-      <div class="action-foot">
-        <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-home-action-time>本月内完成</span></span>
-        <a class="text-link" data-home-why href="analysis.html">为什么 <span>⌄</span></a>
       </div>
     </section>
 
@@ -112,6 +112,6 @@
     </nav>
   </main>
 
-  <script src="/static/ui-shell.js"></script>
+  <script src="ui-shell.js?v=20260702-ui2"></script>
 </body>
 </html>
