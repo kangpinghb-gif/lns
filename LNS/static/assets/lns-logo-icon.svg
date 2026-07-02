@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="LNS logo icon">
+  <defs>
+    <linearGradient id="g" x1="16" y1="18" x2="112" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7fb0ff"/>
+      <stop offset="0.48" stop-color="#3f6fff"/>
+      <stop offset="1" stop-color="#1d2b62"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="58%">
+      <stop offset="0" stop-color="#8fb6ff" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#8fb6ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#0f1937"/>
+  <circle cx="64" cy="64" r="46" fill="none" stroke="url(#g)" stroke-width="6"/>
+  <circle cx="64" cy="64" r="34" fill="url(#glow)"/>
+  <path d="M41 78c10-4 18-13 22-24 6-16 17-22 29-25-5 10-14 17-20 28-4 8-5 16-3 24-11-1-21-1-28-3Z" fill="url(#g)"/>
+  <path d="M63 66c-1 5 1 11 5 15" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M32 90c12-2 20-3 30-2 12 1 24 0 34-4" fill="none" stroke="#6fa3ff" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="64" cy="64" r="8" fill="#ffffff"/>
+  <circle cx="64" cy="64" r="4.5" fill="#0f1937"/>
+  <path d="M64 26v-8M102 64h8M64 110v-8M18 64h8" stroke="#6fa3ff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M64 28l6 10h-12z" fill="#ffffff"/>
+  <path d="M64 100l6-10h-12z" fill="#ffffff" opacity=".9"/>
+  <path d="M26 64l10-6v12z" fill="#ffffff" opacity=".9"/>
+  <path d="M102 64l-10-6v12z" fill="#ffffff" opacity=".9"/>
+</svg>

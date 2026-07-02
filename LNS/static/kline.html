@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LNS · 人生K线</title>
+  <link rel="stylesheet" href="/static/ui-shell.css">
+</head>
+<body class="ui-shell app-page app-page--kline">
+  <header class="shell-header">
+    <div class="shell-header__inner">
+      <a class="brand" href="home.html">
+        <span class="brand__mark">
+          <img src="/static/assets/lns-logo-icon.svg" alt="LNS logo">
+        </span>
+        <img class="brand__wordmark" src="/static/assets/lns-logo-wordmark.svg" alt="LNS Life Navigation System">
+      </a>
+      <nav class="primary-nav">
+        <a class="primary-nav__link" data-nav href="home.html">首页</a>
+        <a class="primary-nav__link" data-nav href="create.html">生成入口</a>
+        <a class="primary-nav__link" data-nav href="kline.html">人生K线</a>
+        <a class="primary-nav__link" data-nav href="analysis.html">命理透视</a>
+        <a class="primary-nav__link" data-nav href="year-detail.html">流年详情</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap phone-frame">
+    <section class="app-statusbar">
+      <span>9:41</span>
+      <span class="app-statusbar__icons" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M2 8.5C5.5 5 9.2 3.2 12 3.2s6.5 1.8 10 5.3"/><path d="M5 11.5c2.3-2.3 4.7-3.5 7-3.5s4.7 1.2 7 3.5"/><path d="M8 14.5c1.3-1.3 2.7-2 4-2s2.7.7 4 2"/><circle cx="12" cy="18" r="1.25"/></svg>
+        <svg viewBox="0 0 24 24"><rect x="3" y="6" width="16" height="12" rx="2"/><path d="M21 9v6"/><path d="M7 10h7"/><path d="M7 14h4"/></svg>
+      </span>
+    </section>
+
+    <section class="app-strip" data-kline-anchor>丁火日主 · 伤官格 · 癸酉大运 <span>›</span></section>
+
+    <section class="app-page-head app-page-head--compact">
+      <div class="top-back-row">
+        <a class="icon-btn" href="home.html" aria-label="返回首页">
+          <svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7"/><path d="M9 12h11"/></svg>
+        </a>
+        <div class="top-back-row__title">人生 K 线</div>
+        <button class="icon-btn" type="button" aria-label="分享">
+          <svg viewBox="0 0 24 24"><path d="M16 8a3 3 0 1 0-2.8-4"/><path d="M6 14a3 3 0 1 0 0-4"/><path d="M18 20a3 3 0 1 0-2.8-4"/><path d="M8.7 12.2 14.2 9"/><path d="M8.7 11.8 14.2 15"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <section class="app-grid app-grid--2">
+      <article class="app-card metric-card">
+        <div class="mini-label">能量值</div>
+        <div class="score-xl is-green" data-current-energy>--</div>
+        <div class="metric-bar"><span data-energy-bar></span></div>
+        <div class="mini-note" data-energy-note>等待分析结果</div>
+      </article>
+
+      <article class="app-card metric-card">
+        <div class="mini-label">风险值</div>
+        <div class="score-xl is-orange" data-current-risk>--</div>
+        <div class="metric-bar metric-bar--orange"><span data-risk-bar></span></div>
+        <div class="mini-note" data-risk-note>等待分析结果</div>
+      </article>
+    </section>
+
+    <section class="app-card explain-card">
+      <div class="card-kicker">当前周期</div>
+      <h2 class="app-section-title" data-current-cycle>当前大运</h2>
+      <p class="explain-foot" data-current-cycle-note>正在匹配当前年龄所在的大运周期。</p>
+    </section>
+
+    <section class="app-card chart-card">
+      <div class="card-head card-head--between">
+        <div class="card-kicker">人生能量走势</div>
+        <div class="segmented segmented--compact">
+          <button class="segmented__item" type="button" data-kline-range="decade">大运</button>
+          <button class="segmented__item is-active" type="button" data-kline-range="all">流年</button>
+          <button class="segmented__item" type="button" data-kline-range="month">流月</button>
+        </div>
+      </div>
+      <div class="chart-frame chart-frame--compact">
+        <div class="trend-chart" data-kline-chart></div>
+      </div>
+      <div class="chart-axis" data-kline-axis aria-hidden="true">
+        <span>--</span>
+        <span>--</span>
+        <span>--</span>
+      </div>
+      <div class="kline-info" data-kline-info aria-live="polite">
+        <div>
+          <span class="kline-info__label">年份</span>
+          <strong data-kline-info-year>--</strong>
+        </div>
+        <div>
+          <span class="kline-info__label">开高低收</span>
+          <strong data-kline-info-ohlc>--</strong>
+        </div>
+        <div>
+          <span class="kline-info__label">阶段</span>
+          <strong data-kline-info-stage>等待分析结果</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-card explain-card">
+      <div class="card-head card-head--between">
+        <div class="card-kicker">当前阶段判断</div>
+        <div class="trend-status is-green" data-current-trend>稳步上升</div>
+      </div>
+      <p class="explain-copy" data-current-stage-note>正在等待当前阶段判断。</p>
+      <p class="explain-foot" data-current-stage>等待分析结果</p>
+    </section>
+
+    <section class="app-card cta-card">
+      <a class="cta-card__link" href="analysis.html">
+        <span>
+          <strong>查看命理透视</strong>
+          <small>更详细的结构解释</small>
+        </span>
+        <span class="cta-arrow">→</span>
+      </a>
+    </section>
+
+    <section class="app-card upgrade-card" data-upgrade-slot="kline-pro">
+      <div class="upgrade-card__eyebrow">专业版入口</div>
+      <h2 class="upgrade-card__title">解锁完整命理透视与年度行动建议</h2>
+      <p class="upgrade-card__copy">这里预留后续付费内容入口。当前阶段暂免费开放，后续可在不改页面结构的情况下接入会员或单次解锁。</p>
+      <div class="upgrade-card__status" data-upgrade-status="kline-pro">暂免费开放</div>
+    </section>
+
+    <nav class="app-bottom-nav" aria-label="主导航">
+      <a class="app-bottom-nav__item" data-nav href="home.html">
+        <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 10v10h14V10"/></svg>
+        <span>首页</span>
+      </a>
+      <a class="app-bottom-nav__item is-active" data-nav href="kline.html">
+        <svg viewBox="0 0 24 24"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M7 15l4-4 3 3 6-8"/></svg>
+        <span>K线</span>
+      </a>
+      <a class="app-bottom-nav__item" data-nav href="analysis.html">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 7v5l3 2"/></svg>
+        <span>透视</span>
+      </a>
+      <a class="app-bottom-nav__item" data-nav href="year-detail.html">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M7 3v6"/><path d="M17 3v6"/><path d="M5 10h14v11H5z"/></svg>
+        <span>流年</span>
+      </a>
+      <a class="app-bottom-nav__item" data-nav href="create.html">
+        <svg viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+        <span>生成</span>
+      </a>
+    </nav>
+  </main>
+
+  <script src="/static/ui-shell.js"></script>
+</body>
+</html>

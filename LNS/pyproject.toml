@@ -1,0 +1,17 @@
+[project]
+name = "lns"
+version = "1.0.0"
+description = "Life Navigation System - 人生决策导航系统"
+requires-python = ">=3.6"
+dependencies = [
+    "lunar-python>=1.4.8,<2.0",
+    "pytz",
+    "python-dateutil",
+    "pydantic>=1.0,<2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "skyfield>=1.46",
+]

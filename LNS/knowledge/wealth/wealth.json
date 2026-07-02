@@ -1,0 +1,75 @@
+[
+  {
+    "id": "wlt_001",
+    "type": "正财型",
+    "source": "稳定薪资、主业收入",
+    "suitable_gods": [
+      "正财"
+    ],
+    "suitable_elements": [
+      "earth",
+      "metal"
+    ],
+    "behavior": [
+      "稳定积累",
+      "长期规划"
+    ],
+    "risk": "增长缓慢",
+    "advice": "适合主业深耕+副业探索"
+  },
+  {
+    "id": "wlt_002",
+    "type": "偏财型",
+    "source": "投资、副业、意外收益",
+    "suitable_gods": [
+      "偏财"
+    ],
+    "suitable_elements": [
+      "fire",
+      "water"
+    ],
+    "behavior": [
+      "机会捕捉",
+      "灵活决策"
+    ],
+    "risk": "波动性高",
+    "advice": "需建立风险缓冲机制"
+  },
+  {
+    "id": "wlt_003",
+    "type": "食伤生财型",
+    "source": "技能变现、内容创作",
+    "suitable_gods": [
+      "食神",
+      "伤官"
+    ],
+    "suitable_elements": [
+      "wood",
+      "fire"
+    ],
+    "behavior": [
+      "创造输出",
+      "技术变现"
+    ],
+    "risk": "收入不稳定",
+    "advice": "建立多元化收入渠道"
+  },
+  {
+    "id": "wlt_004",
+    "type": "官财型",
+    "source": "管理岗位、体制内",
+    "suitable_gods": [
+      "正官",
+      "正财"
+    ],
+    "suitable_elements": [
+      "metal"
+    ],
+    "behavior": [
+      "规则执行",
+      "稳定收入"
+    ],
+    "risk": "晋升瓶颈",
+    "advice": "提升不可替代性"
+  }
+]

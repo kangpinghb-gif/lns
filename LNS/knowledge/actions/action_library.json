@@ -1,0 +1,98 @@
+[
+  {
+    "id": "action_001",
+    "category": "学习",
+    "description": "开始系统学习",
+    "applicable_conditions": ["木增强", "印增强", "学习窗口开启"],
+    "risk_level": "low",
+    "priority": "P1"
+  },
+  {
+    "id": "action_002",
+    "category": "职业",
+    "description": "完善简历",
+    "applicable_conditions": ["职业变化窗口"],
+    "risk_level": "low",
+    "priority": "P0"
+  },
+  {
+    "id": "action_003",
+    "category": "创新",
+    "description": "启动创新任务",
+    "applicable_conditions": ["伤官主导", "高能量", "T0日级"],
+    "risk_level": "medium",
+    "priority": "P1"
+  },
+  {
+    "id": "action_004",
+    "category": "社交",
+    "description": "主动建立关系网络",
+    "applicable_conditions": ["天乙贵人", "社交窗口"],
+    "risk_level": "low",
+    "priority": "P1"
+  },
+  {
+    "id": "action_005",
+    "category": "财务",
+    "description": "审查财务状况",
+    "applicable_conditions": ["偏财增强", "财务波动期"],
+    "risk_level": "low",
+    "priority": "P1"
+  },
+  {
+    "id": "action_006",
+    "category": "健康",
+    "description": "建立规律作息",
+    "applicable_conditions": ["能量偏低", "调整期"],
+    "risk_level": "low",
+    "priority": "P2"
+  },
+  {
+    "id": "action_007",
+    "category": "决策",
+    "description": "延迟重大决策24小时",
+    "applicable_conditions": ["羊刃", "冲动风险"],
+    "risk_level": "low",
+    "priority": "P0"
+  },
+  {
+    "id": "action_008",
+    "category": "规划",
+    "description": "制定长期计划",
+    "applicable_conditions": ["T2年级", "结构建立期"],
+    "risk_level": "low",
+    "priority": "P2"
+  },
+  {
+    "id": "action_009",
+    "category": "表达",
+    "description": "输出创作内容",
+    "applicable_conditions": ["文昌", "学习窗口"],
+    "risk_level": "low",
+    "priority": "P1"
+  },
+  {
+    "id": "action_010",
+    "category": "风险",
+    "description": "降低风险敞口",
+    "applicable_conditions": ["高风险", "结构性冲突"],
+    "risk_level": "low",
+    "priority": "P0"
+  },
+  {
+    "id": "action_011",
+    "category": "沟通",
+    "description": "注意言语安全",
+    "applicable_conditions": ["伤官主导", "言语冲突风险"],
+    "risk_level": "low",
+    "priority": "P1"
+  },
+  {
+    "id": "action_012",
+    "category": "资源",
+    "description": "整合现有资源",
+    "applicable_conditions": ["偏财增强", "机会窗口"],
+    "risk_level": "low",
+    "priority": "P1"
+  }
+]

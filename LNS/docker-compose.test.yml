@@ -1,0 +1,15 @@
+services:
+  lns-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      LOG_LEVEL: "debug"
+    volumes:
+      - lns_test_data:/app/db/data
+    restart: unless-stopped
+
+volumes:
+  lns_test_data:
