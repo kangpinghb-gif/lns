@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <base href="/lns/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人生K线 Mockup</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #eef4fb;
+  --surface: rgba(255,255,255,0.88);
+  --surface-strong: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --line: #dbe6f2;
+  --blue: #2f5bea;
+  --blue-deep: #2145bd;
+  --green: #17b26a;
+  --red: #ef4444;
+  --amber: #f59e0b;
+  --shadow: 0 20px 48px rgba(15, 23, 42, 0.10);
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(47,91,234,.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(23,178,106,.12), transparent 24%),
+    linear-gradient(180deg, #f4f8fc 0%, #eef4fb 100%);
+}
+.page { max-width: 1180px; margin: 0 auto; padding: 28px 24px 60px; }
+.topbar {
+  display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:22px;
+}
+.brand h1 { font-size: 33px; font-weight: 800; letter-spacing: 0; }
+.brand p { margin-top: 8px; color: var(--muted); font-size: 15px; }
+.pill {
+  display:inline-flex; align-items:center; min-height:36px; padding:0 14px; border-radius:999px;
+  border:1px solid rgba(255,255,255,.6); background:rgba(255,255,255,.72); color:var(--muted); font-size:13px;
+  box-shadow: 0 8px 24px rgba(148, 163, 184, .18);
+}
+.hero {
+  display:grid; grid-template-columns: minmax(0, .92fr) minmax(360px, 1.08fr); gap:22px; margin-bottom:20px;
+}
+.panel {
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,.85);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+.hero-copy { padding: 30px; }
+.eyebrow { color: var(--blue); font-size: 13px; font-weight: 760; margin-bottom: 12px; }
+.hero-copy h2 { font-size: 58px; line-height: .98; font-weight: 820; max-width: 520px; }
+.hero-copy p {
+  margin-top: 18px; color: var(--muted); font-size: 18px; line-height: 1.72; max-width: 540px;
+}
+.hero-form { display:grid; grid-template-columns: 1fr 150px auto; gap:10px; margin-top:26px; }
+.input {
+  min-height: 52px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.94);
+  padding: 0 16px; display:flex; align-items:center; justify-content:space-between; color:#334155; font-size:16px;
+}
+.cta {
+  min-height: 52px; border: 0; border-radius: 14px; background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
+  color:#fff; font-size:16px; font-weight:760; padding:0 22px;
+}
+.chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+.chip {
+  border:1px solid #d8e3f5; background:#f8fbff; color:#35548a; min-height:34px; padding:0 12px; border-radius:999px;
+  display:inline-flex; align-items:center; font-size:13px; font-weight:700;
+}
+.hero-preview { padding: 24px; }
+.preview-card {
+  border:1px solid var(--line); border-radius: 18px; padding:18px; background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+}
+.preview-head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+.preview-title { font-size:16px; font-weight:780; }
+.preview-sub { margin-top:4px; color:var(--muted); font-size:13px; }
+.badges { display:flex; gap:8px; flex-wrap:wrap; }
+.badge-main {
+  min-height:36px; padding:0 14px; border-radius:999px; background:var(--blue); color:#fff; font-size:14px; font-weight:760;
+  display:inline-flex; align-items:center;
+}
+.badge-soft {
+  min-height:30px; padding:0 11px; border-radius:999px; background:#eef8f1; color:#0f7b4f; font-size:13px; font-weight:720;
+  display:inline-flex; align-items:center;
+}
+.chart {
+  height: 260px; margin-top: 20px; padding: 18px 14px 14px; border-radius: 16px; border:1px solid var(--line);
+  background:
+    linear-gradient(to top, rgba(47,91,234,.08) 1px, transparent 1px) 0 0 / 100% 25%,
+    linear-gradient(180deg, #fbfdff 0%, #f3f8ff 100%);
+  display:grid; grid-template-columns: repeat(8, 1fr); align-items:end; gap:10px;
+}
+.bar {
+  position:relative; border-radius:7px 7px 3px 3px; background:linear-gradient(180deg, #26c47d 0%, #159455 100%);
+  box-shadow: inset 0 -12px 0 rgba(0,0,0,.06);
+}
+.bar.down { background:linear-gradient(180deg, #ff7b74 0%, #ef4444 100%); }
+.bar::before {
+  content:""; position:absolute; left:50%; transform:translateX(-50%); bottom:100%; width:2px; height:22px;
+  background:#475569; opacity:.7;
+}
+.bar::after {
+  content:attr(data-age); position:absolute; left:50%; transform:translateX(-50%); bottom:-28px; color:var(--muted); font-size:12px;
+}
+.metrics { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top:36px; }
+.metric { background:var(--surface-strong); border:1px solid var(--line); border-radius:14px; padding:14px; }
+.metric-label { color:var(--muted); font-size:13px; }
+.metric-value { margin-top:8px; font-size:28px; font-weight:800; }
+.summary { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; margin-bottom:18px; }
+.summary-card, .split-card { padding: 22px; }
+.section-title { font-size:15px; font-weight:780; margin-bottom:14px; }
+.summary-list { display:flex; flex-direction:column; gap:10px; }
+.summary-item { border-top:1px solid #edf2f8; padding-top:10px; }
+.summary-item:first-child { border-top:0; padding-top:0; }
+.summary-key { color:var(--muted); font-size:12px; }
+.summary-val { margin-top:4px; font-size:15px; line-height:1.55; }
+.split { display:grid; grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr); gap:16px; margin-bottom:18px; }
+.time-tabs { display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap; }
+.time-tab { min-height:34px; border:1px solid var(--line); border-radius:999px; padding:0 14px; background:#fff; color:var(--muted); font-size:13px; font-weight:720; display:inline-flex; align-items:center; }
+.time-tab.active { background:#edf4ff; color:var(--blue); border-color:#cad9ff; }
+.focus-box { border:1px solid var(--line); border-radius:14px; background:#fcfdff; padding:14px; margin-bottom:12px; }
+.focus-title { color:var(--muted); font-size:12px; margin-bottom:8px; }
+.focus-item { padding:10px 0 0 16px; position:relative; line-height:1.6; font-size:14px; }
+.focus-item::before { content:""; position:absolute; left:0; top:17px; width:6px; height:6px; border-radius:999px; background:#b9c7dd; }
+.priority-group { border:1px solid var(--line); border-radius:14px; background:#fcfdff; padding:14px; margin-bottom:12px; }
+.priority-head { display:flex; align-items:center; gap:8px; font-size:13px; font-weight:780; margin-bottom:8px; }
+.dot { width:8px; height:8px; border-radius:999px; background:var(--red); }
+.dot.amber { background:var(--amber); }
+.dot.blue { background:var(--blue); }
+.detail-grid { display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+.detail-card { padding: 22px; }
+.tag-list { display:flex; gap:8px; flex-wrap:wrap; }
+.footer-note {
+  margin-top: 20px; color:var(--muted); font-size:13px; line-height:1.7; text-align:center;
+}
+@media (max-width: 920px) {
+  .hero, .summary, .split, .detail-grid { grid-template-columns: 1fr; }
+  .hero-copy h2 { font-size: 42px; }
+  .hero-form { grid-template-columns: 1fr; }
+  .metrics { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="brand">
+        <h1>人生K线</h1>
+        <p>用生日生成人生命局、五行、大运与流年趋势</p>
+      </div>
+      <div class="pill">Asia/Shanghai</div>
+    </div>
+
+    <section class="hero">
+      <div class="panel hero-copy">
+        <div class="eyebrow">传统八字 · 数据化状态 · 人生K线</div>
+        <h2>输入生日，查看你的人生趋势</h2>
+        <p>基于命局、五行旺衰、十神结构、大运与流年，生成可视化人生趋势图。先看当前状态，再决定接下来怎么走。</p>
+        <div class="hero-form">
+          <div class="input"><span>1995/08/20</span><span>📅</span></div>
+          <div class="input"><span>08:00</span><span>◔</span></div>
+          <button class="cta">生成K线</button>
+        </div>
+        <div class="chips">
+          <span class="chip">命局分析</span>
+          <span class="chip">五行旺衰</span>
+          <span class="chip">大运流年</span>
+          <span class="chip">状态分值</span>
+        </div>
+      </div>
+
+      <div class="panel hero-preview">
+        <div class="preview-card">
+          <div class="preview-head">
+            <div>
+              <div class="preview-title">人生K线预览</div>
+              <div class="preview-sub">成长扩展期 · 当前节奏上行</div>
+            </div>
+            <div class="badges">
+              <span class="badge-main">稳定发展期</span>
+              <span class="badge-soft">正常</span>
+            </div>
+          </div>
+
+          <div class="chart">
+            <div class="bar" data-age="20" style="height:24%"></div>
+            <div class="bar" data-age="25" style="height:36%"></div>
+            <div class="bar" data-age="30" style="height:52%"></div>
+            <div class="bar down" data-age="35" style="height:42%"></div>
+            <div class="bar" data-age="40" style="height:68%"></div>
+            <div class="bar down" data-age="45" style="height:56%"></div>
+            <div class="bar" data-age="50" style="height:78%"></div>
+            <div class="bar down" data-age="今" style="height:64%"></div>
+          </div>
+
+          <div class="metrics">
+            <div class="metric">
+              <div class="metric-label">能量值</div>
+              <div class="metric-value">85<span style="font-size:16px;font-weight:700;color:var(--muted)"> /100</span></div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">风险值</div>
+              <div class="metric-value">30<span style="font-size:16px;font-weight:700;color:var(--muted)"> /100</span></div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">当前阶段</div>
+              <div class="metric-value" style="font-size:22px;">稳定发展期</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary">
+      <div class="panel summary-card">
+        <div class="section-title">命局结构</div>
+        <div class="summary-list">
+          <div class="summary-item"><div class="summary-key">日主</div><div class="summary-val">癸水日主</div></div>
+          <div class="summary-item"><div class="summary-key">十神落位</div><div class="summary-val">食神临年柱，正财临月柱，比肩坐日柱</div></div>
+          <div class="summary-item"><div class="summary-key">五行旺衰</div><div class="summary-val">火旺，水旺，土弱，木金中和</div></div>
+        </div>
+      </div>
+      <div class="panel summary-card">
+        <div class="section-title">当前判断</div>
+        <div class="summary-list">
+          <div class="summary-item"><div class="summary-key">当前大运</div><div class="summary-val">成长扩展期</div></div>
+          <div class="summary-item"><div class="summary-key">流年方向</div><div class="summary-val">火气主事，宜主动推进</div></div>
+          <div class="summary-item"><div class="summary-key">流月趋势</div><div class="summary-val">上行 +18，适合聚焦关键事项</div></div>
+        </div>
+      </div>
+      <div class="panel summary-card">
+        <div class="section-title">建议重点</div>
+        <div class="summary-list">
+          <div class="summary-item"><div class="summary-key">宜</div><div class="summary-val">推进关键决策、集中突破高优先级事项</div></div>
+          <div class="summary-item"><div class="summary-key">忌</div><div class="summary-val">分散精力、被低价值事务拖住节奏</div></div>
+          <div class="summary-item"><div class="summary-key">提醒</div><div class="summary-val">当前高能量窗口适合主动出击，不适合犹疑观望</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="split">
+      <div class="panel split-card">
+        <div class="section-title">时间趋势</div>
+        <div class="time-tabs">
+          <span class="time-tab active">今日</span>
+          <span class="time-tab">本月</span>
+          <span class="time-tab">今年</span>
+          <span class="time-tab">大运</span>
+        </div>
+        <div class="focus-box">
+          <div class="focus-title">今日状态</div>
+          <div class="focus-item">精力状态 85/100，适合推进高强度任务</div>
+          <div class="focus-item">当前风险偏低，可主动处理关键事项</div>
+        </div>
+        <div class="focus-box">
+          <div class="focus-title">本月趋势</div>
+          <div class="focus-item">流月上行，火气主表达，适合谈判、发布、推进</div>
+          <div class="focus-item">注意控制节奏，避免高开低走</div>
+        </div>
+      </div>
+
+      <div class="panel split-card">
+        <div class="section-title">行动建议</div>
+        <div class="priority-group">
+          <div class="priority-head"><span class="dot"></span>立即执行</div>
+          <div class="focus-item">主动推进关键决策，先做影响最大的事项</div>
+          <div class="focus-item">利用高能量期完成最难的一步</div>
+        </div>
+        <div class="priority-group">
+          <div class="priority-head"><span class="dot amber"></span>重要任务</div>
+          <div class="focus-item">梳理接下来 30 天的核心节点</div>
+          <div class="focus-item">把资源集中到一个主线项目</div>
+        </div>
+        <div class="priority-group">
+          <div class="priority-head"><span class="dot blue"></span>可延后项</div>
+          <div class="focus-item">低收益尝试、泛社交、重复性事务</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-grid">
+      <div class="panel detail-card">
+        <div class="section-title">命局结构展开</div>
+        <div class="tag-list">
+          <span class="chip">日主癸</span>
+          <span class="chip">食神临年柱</span>
+          <span class="chip">正财临月柱</span>
+          <span class="chip">比肩临日柱</span>
+          <span class="chip">火气最盛</span>
+          <span class="chip">土弱待补</span>
+        </div>
+      </div>
+      <div class="panel detail-card">
+        <div class="section-title">专业模式预留</div>
+        <div class="summary-val">这里后续可以放完整四柱、十神、五行旺衰、PDF 导出和对话导航，不占首屏焦点。</div>
+      </div>
+    </section>
+
+    <div class="footer-note">
+      这是首页样图，用于确认布局和视觉方向。核心目标是让用户第一屏就明白：输入生日，可以马上看到人生趋势图和当前状态。
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+[
+  {
+    "element": "wood",
+    "style": "扩展型学习",
+    "method": "多领域探索、实践中学",
+    "strength": "知识面广",
+    "weakness": "深度不足",
+    "advice": "建议建立系统化学习框架"
+  },
+  {
+    "element": "fire",
+    "style": "交流型学习",
+    "method": "讨论、输出、教学相长",
+    "strength": "理解快",
+    "weakness": "持久性不足",
+    "advice": "适合小组学习和输出式学习"
+  },
+  {
+    "element": "earth",
+    "style": "积累型学习",
+    "method": "循序渐进、重复巩固",
+    "strength": "基础扎实",
+    "weakness": "速度慢",
+    "advice": "适合长周期系统学习"
+  },
+  {
+    "element": "metal",
+    "style": "结构型学习",
+    "method": "逻辑框架、规则学习",
+    "strength": "体系清晰",
+    "weakness": "缺乏灵活性",
+    "advice": "适合结构化知识体系"
+  },
+  {
+    "element": "water",
+    "style": "渗透型学习",
+    "method": "沉浸式、多点触发",
+    "strength": "适应力强",
+    "weakness": "知识碎片化",
+    "advice": "需注意建立知识体系"
+  }
+]

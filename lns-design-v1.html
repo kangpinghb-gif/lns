@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LNS · 人生导航系统</title>
+  <style>
+    /* ============================================================
+       Editorial Brutalism — 媒体级粗野主义
+       配色: #000 纯黑底 / #FFF 纯白字 / #E53935 醒目红 / #FFE500 警告黄
+       字体: Impact, Helvetica Now Display, GT America — 粗壮无衬线
+       特征: 超大字号标题、硬朗网格、极致对比、无圆角、无渐变、无阴影
+       ============================================================ */
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --black: #000000;
+      --white: #FFFFFF;
+      --red:  #E53935;
+      --yellow: #FFE500;
+      --gray-100: #1A1A1A;
+      --gray-200: #2A2A2A;
+      --gray-300: #555555;
+      --font-sans: 'Helvetica Neue', 'Helvetica Now Display', 'Arial', 'Impact', sans-serif;
+      --font-display: 'Impact', 'Helvetica Neue', 'Arial Black', sans-serif;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      color: var(--white);
+      background: var(--black);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
+
+    /* ---------- Layout grid ---------- */
+    .site-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+      max-width: 1440px;
+      margin: 0 auto;
+      border-left: 4px solid var(--red);
+      border-right: 4px solid var(--red);
+    }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      border-bottom: 4px solid var(--white);
+      background: var(--black);
+    }
+
+    .brand {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.15em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand .brand-dot {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      background: var(--red);
+    }
+
+    .brand:hover {
+      color: var(--red);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0;
+    }
+
+    .nav-links a {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.5rem 1.25rem;
+      border-left: 2px solid var(--gray-200);
+      transition: background 0.1s, color 0.1s;
+    }
+
+    .nav-links a:first-child {
+      border-left: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.current {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    /* ---------- Hero — left side ---------- */
+    .hero-left {
+      grid-column: 1 / 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 2.5rem 3rem 2rem;
+      border-right: 2px solid var(--gray-200);
+    }
+
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--red);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--red);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5.25rem);
+      line-height: 0.92;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title .highlight {
+      color: var(--red);
+      background: var(--black);
+      display: inline-block;
+    }
+
+    .hero-title .highlight-yellow {
+      color: var(--yellow);
+    }
+
+    .hero-sub {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 0.9375rem;
+      line-height: 1.4;
+      color: var(--gray-300);
+      max-width: 32rem;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.04em;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .btn {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      padding: 1rem 2.25rem;
+      border: 3px solid var(--white);
+      color: var(--white);
+      background: transparent;
+      transition: background 0.1s, color 0.1s, border-color 0.1s;
+      display: inline-block;
+    }
+
+    .btn--primary {
+      background: var(--white);
+      color: var(--black);
+      border-color: var(--white);
+    }
+
+    .btn--primary:hover {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--white);
+    }
+
+    .btn--outline:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    /* ---------- Hero — right side (chart) ---------- */
+    .hero-right {
+      grid-column: 2 / 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      padding: 3rem 2rem 3rem 2.5rem;
+      border-left: 2px solid var(--gray-200);
+    }
+
+    .chart-block {
+      width: 100%;
+      background: var(--gray-100);
+      border: 3px solid var(--white);
+      padding: 1.5rem 1.25rem 1.25rem;
+    }
+
+    .chart-block__title {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gray-300);
+      margin-bottom: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chart-block__title .badge {
+      background: var(--red);
+      color: var(--white);
+      padding: 0.2rem 0.6rem;
+      font-size: 0.625rem;
+    }
+
+    .chart-grid {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 220px;
+      margin-bottom: 0.75rem;
+    }
+
+    .chart-grid__bar {
+      flex: 1;
+      background: var(--white);
+      position: relative;
+      min-height: 8px;
+      transition: background 0.15s;
+    }
+
+    .chart-grid__bar.is-down {
+      background: var(--red);
+    }
+
+    .chart-grid__bar.is-peak {
+      background: var(--yellow);
+    }
+
+    .chart-grid__bar::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: -1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.5625rem;
+      color: var(--gray-300);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .chart-note {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 0.625rem;
+      color: var(--gray-300);
+      text-align: right;
+      letter-spacing: 0.02em;
+      border-top: 1px solid var(--gray-200);
+      padding-top: 0.5rem;
+      margin-top: 0.25rem;
+    }
+
+    /* ---------- Feature cards row ---------- */
+    .features {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 4px solid var(--white);
+      border-bottom: 4px solid var(--white);
+    }
+
+    .feature-card {
+      padding: 2rem 1.5rem;
+      border-right: 2px solid var(--gray-200);
+      transition: background 0.1s;
+    }
+
+    .feature-card:last-child {
+      border-right: none;
+    }
+
+    .feature-card:hover {
+      background: var(--gray-100);
+    }
+
+    .feature-card__step {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.625rem;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .feature-card__title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    .feature-card__desc {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 0.8125rem;
+      line-height: 1.35;
+      color: var(--gray-300);
+      margin-bottom: 1rem;
+    }
+
+    .feature-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .tag {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.5rem;
+      border: 2px solid var(--gray-200);
+      color: var(--gray-300);
+      transition: border-color 0.1s, color 0.1s;
+    }
+
+    .tag:hover {
+      border-color: var(--white);
+      color: var(--white);
+    }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-top: 2px solid var(--gray-200);
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 0.6875rem;
+      color: var(--gray-300);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .site-footer a {
+      color: var(--gray-300);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.1s, border-color 0.1s;
+    }
+
+    .site-footer a:hover {
+      color: var(--white);
+      border-bottom-color: var(--red);
+    }
+
+    /* ---------- Decorative brutalist elements ---------- */
+    .brutal-stripe {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 100%;
+      background: var(--red);
+      z-index: 999;
+      pointer-events: none;
+    }
+
+    .brutal-stripe--bottom {
+      top: auto;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--yellow);
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .site-grid {
+        grid-template-columns: 1fr;
+        border-left: none;
+        border-right: none;
+      }
+
+      .hero-left,
+      .hero-right {
+        grid-column: 1 / -1;
+        border: none;
+        padding: 2rem 1.5rem;
+      }
+
+      .hero-right {
+        border-top: 2px solid var(--gray-200);
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-card:nth-child(even) {
+        border-right: none;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .brutal-stripe {
+        width: 4px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card {
+        border-right: none;
+        border-bottom: 1px solid var(--gray-200);
+      }
+
+      .hero-title {
+        font-size: clamp(2.2rem, 10vw, 3rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Brutalist decorative stripes -->
+  <div class="brutal-stripe"></div>
+  <div class="brutal-stripe--bottom"></div>
+
+  <div class="site-grid">
+    <!-- Header -->
+    <header class="site-header">
+      <a href="home.html" class="brand">
+        <span class="brand-dot"></span>
+        LNS · 人生导航系统
+      </a>
+      <nav class="nav-links">
+        <a href="home.html" class="current">首页</a>
+        <a href="create.html">生成</a>
+        <a href="kline.html">K线</a>
+        <a href="analysis.html">透视</a>
+        <a href="year-detail.html">流年</a>
+      </nav>
+    </header>
+
+    <!-- Hero Left -->
+    <section class="hero-left">
+      <div class="eyebrow">Life Navigation System</div>
+      <h1 class="hero-title">
+        看清当下<br>
+        <span class="highlight">把握未来</span>
+      </h1>
+      <p class="hero-sub">
+        基于时间与结构模型的人生决策导航系统。<br>
+        先给结果，再给依据，再给行动建议 —<br>
+        让复杂命理信息变成可执行的阅读路径。
+      </p>
+      <div class="cta-group">
+        <a href="create.html" class="btn btn--primary">开始生成报告</a>
+        <a href="kline.html" class="btn btn--outline">查看趋势总览</a>
+      </div>
+    </section>
+
+    <!-- Hero Right (Chart) -->
+    <section class="hero-right">
+      <div class="chart-block">
+        <div class="chart-block__title">
+          <span>人生趋势 · 命局走势</span>
+          <span class="badge">▼ 当前低谷期</span>
+        </div>
+        <div class="chart-grid" aria-label="人生趋势示意图">
+          <div class="chart-grid__bar" style="height: 18%;" data-label="10岁"></div>
+          <div class="chart-grid__bar" style="height: 32%;" data-label="15岁"></div>
+          <div class="chart-grid__bar" style="height: 48%;" data-label="20岁"></div>
+          <div class="chart-grid__bar" style="height: 56%;" data-label="25岁"></div>
+          <div class="chart-grid__bar is-peak" style="height: 88%;" data-label="30岁"></div>
+          <div class="chart-grid__bar" style="height: 72%;" data-label="35岁"></div>
+          <div class="chart-grid__bar is-down" style="height: 46%;" data-label="40岁"></div>
+          <div class="chart-grid__bar" style="height: 60%;" data-label="45岁"></div>
+          <div class="chart-grid__bar" style="height: 74%;" data-label="50岁"></div>
+          <div class="chart-grid__bar is-down" style="height: 40%;" data-label="55岁"></div>
+          <div class="chart-grid__bar" style="height: 54%;" data-label="60岁"></div>
+          <div class="chart-grid__bar is-peak" style="height: 80%;" data-label="65岁"></div>
+        </div>
+        <div class="chart-note">示意图只承担结构表达，不绑定真实计算逻辑。</div>
+      </div>
+    </section>
+
+    <!-- Feature Cards -->
+    <section class="features">
+      <article class="feature-card">
+        <span class="feature-card__step">Step 01</span>
+        <h3 class="feature-card__title">INPUT</h3>
+        <p class="feature-card__desc">提交出生信息，建立个人命理画像。</p>
+        <div class="feature-card__tags">
+          <span class="tag">姓名</span>
+          <span class="tag">性别</span>
+          <span class="tag">出生时间</span>
+          <span class="tag">出生地</span>
+        </div>
+      </article>
+
+      <article class="feature-card">
+        <span class="feature-card__step">Step 02</span>
+        <h3 class="feature-card__title">KLINE</h3>
+        <p class="feature-card__desc">总览人生趋势和当前所处阶段。</p>
+        <div class="feature-card__tags">
+          <span class="tag">趋势图</span>
+          <span class="tag">状态指标</span>
+          <span class="tag">命局摘要</span>
+        </div>
+      </article>
+
+      <article class="feature-card">
+        <span class="feature-card__step">Step 03</span>
+        <h3 class="feature-card__title">ANALYSIS</h3>
+        <p class="feature-card__desc">解释命理结构、五行分布与判断依据。</p>
+        <div class="feature-card__tags">
+          <span class="tag">四柱</span>
+          <span class="tag">五行</span>
+          <span class="tag">性格向量</span>
+        </div>
+      </article>
+
+      <article class="feature-card">
+        <span class="feature-card__step">Step 04</span>
+        <h3 class="feature-card__title">YEAR DETAIL</h3>
+        <p class="feature-card__desc">深入查看具体年份的事业、财运等维度。</p>
+        <div class="feature-card__tags">
+          <span class="tag">年度总评</span>
+          <span class="tag">宜忌</span>
+          <span class="tag">年份切换</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <span>LNS · Life Navigation System</span>
+      <span>
+        <a href="#">隐私声明</a> · 
+        <a href="#">使用条款</a> · 
+        <span>© 2026</span>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>

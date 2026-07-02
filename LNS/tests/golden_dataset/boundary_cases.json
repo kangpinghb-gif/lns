@@ -1,0 +1,844 @@
+[
+  {
+    "id": "boundary_001",
+    "description": "立春当天出生—02-04 12:00 北京（准确交节时刻）",
+    "input": {
+      "birth_date": "2024-02-04",
+      "birth_time": "12:00",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "癸卯",
+      "month_pillar": "丙寅",
+      "day_pillar": "戊戌",
+      "hour_pillar": "戊午",
+      "day_master": "戊",
+      "five_elements": {
+        "wood": 4.7,
+        "fire": 6.7,
+        "earth": 10.0,
+        "metal": 0.7,
+        "water": 3.3
+      }
+    },
+    "source": "boundary",
+    "notes": "2024年2月4日立春16:27，12:00在立春前，仍属癸卯年"
+  },
+  {
+    "id": "boundary_002",
+    "description": "立春后1分钟出生",
+    "input": {
+      "birth_date": "2024-02-04",
+      "birth_time": "16:28",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "癸卯",
+      "month_pillar": "丙寅",
+      "day_pillar": "戊戌",
+      "hour_pillar": "庚申",
+      "day_master": "戊",
+      "five_elements": {
+        "wood": 7.4,
+        "fire": 6.8,
+        "earth": 10.0,
+        "metal": 10.0,
+        "water": 6.3
+      }
+    },
+    "source": "boundary",
+    "notes": "16:27立春，16:28已进入甲辰年"
+  },
+  {
+    "id": "boundary_003",
+    "description": "夜子时—23:30出生 1990-06-15",
+    "input": {
+      "birth_date": "1990-06-15",
+      "birth_time": "23:30",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "庚午",
+      "month_pillar": "壬午",
+      "day_pillar": "辛亥",
+      "hour_pillar": "庚子",
+      "day_master": "辛",
+      "five_elements": {
+        "wood": 0.7,
+        "fire": 4.7,
+        "earth": 1.3,
+        "metal": 10.0,
+        "water": 8.0
+      }
+    },
+    "source": "boundary",
+    "notes": "夜子时23:00-24:00，日柱不进位（仍辛丑），时柱用次日日干推算"
+  },
+  {
+    "id": "boundary_004",
+    "description": "早子时—00:30出生 1990-06-16",
+    "input": {
+      "birth_date": "1990-06-16",
+      "birth_time": "00:30",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "庚午",
+      "month_pillar": "壬午",
+      "day_pillar": "壬子",
+      "hour_pillar": "庚子",
+      "day_master": "壬",
+      "five_elements": {
+        "wood": 0.0,
+        "fire": 4.1,
+        "earth": 1.2,
+        "metal": 5.9,
+        "water": 10.0
+      }
+    },
+    "source": "boundary",
+    "notes": "早子时00:00-01:00，用当日日干推算时柱"
+  },
+  {
+    "id": "boundary_005",
+    "description": "闰月出生—2004-07-23（闰二月当年）",
+    "input": {
+      "birth_date": "2004-07-23",
+      "birth_time": "08:00",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "甲申",
+      "month_pillar": "辛未",
+      "day_pillar": "癸卯",
+      "hour_pillar": "丙辰",
+      "day_master": "癸",
+      "five_elements": {
+        "wood": 10.0,
+        "fire": 6.0,
+        "earth": 7.5,
+        "metal": 8.5,
+        "water": 6.5
+      }
+    },
+    "source": "boundary",
+    "notes": "2004年闰二月，7月不受影响"
+  },
+  {
+    "id": "boundary_006",
+    "description": "DST切换日—1986-05-04 02:00（夏令时开始后）",
+    "input": {
+      "birth_date": "1986-05-04",
+      "birth_time": "02:00",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "丙寅",
+      "month_pillar": "壬辰",
+      "day_pillar": "戊申",
+      "hour_pillar": "癸丑",
+      "day_master": "戊",
+      "five_elements": {
+        "wood": 3.5,
+        "fire": 4.6,
+        "earth": 10.0,
+        "metal": 3.1,
+        "water": 9.6
+      }
+    },
+    "source": "boundary",
+    "notes": "中国1986年夏令时从5月4日开始"
+  },
+  {
+    "id": "boundary_007",
+    "description": "海外出生—纽约 1985-12-25 18:00 EST",
+    "input": {
+      "birth_date": "1985-12-25",
+      "birth_time": "18:00",
+      "birth_place": {
+        "city": "New York",
+        "country": "US"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "乙丑",
+      "month_pillar": "戊子",
+      "day_pillar": "戊戌",
+      "hour_pillar": "辛酉",
+      "day_master": "戊",
+      "five_elements": {
+        "wood": 2.9,
+        "fire": 0.3,
+        "earth": 10.0,
+        "metal": 5.9,
+        "water": 2.6
+      }
+    },
+    "source": "boundary",
+    "notes": "纽约时区UTC-5，需转换"
+  },
+  {
+    "id": "boundary_008",
+    "description": "跨年立春—2021-02-03 08:00（立春前）",
+    "input": {
+      "birth_date": "2021-02-03",
+      "birth_time": "08:00",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "庚子",
+      "month_pillar": "庚寅",
+      "day_pillar": "壬午",
+      "hour_pillar": "甲辰",
+      "day_master": "壬",
+      "five_elements": {
+        "wood": 9.5,
+        "fire": 4.5,
+        "earth": 5.0,
+        "metal": 10.0,
+        "water": 9.0
+      }
+    },
+    "source": "boundary",
+    "notes": "2021年立春2月3日22:59，08:00仍在庚子年"
+  },
+  {
+    "id": "boundary_009",
+    "description": "跨年立春后—2021-02-04 06:00（立春后）",
+    "input": {
+      "birth_date": "2021-02-04",
+      "birth_time": "06:00",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "庚子",
+      "month_pillar": "庚寅",
+      "day_pillar": "癸未",
+      "hour_pillar": "乙卯",
+      "day_master": "癸",
+      "five_elements": {
+        "wood": 10.0,
+        "fire": 1.6,
+        "earth": 3.2,
+        "metal": 8.0,
+        "water": 6.8
+      }
+    },
+    "source": "boundary",
+    "notes": "2021年2月3日22:59立春，2月4日已在辛丑年"
+  },
+  {
+    "id": "boundary_010",
+    "description": "节气交界—惊蛰当天出生 2023-03-06 04:36",
+    "input": {
+      "birth_date": "2023-03-06",
+      "birth_time": "04:36",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "癸卯",
+      "month_pillar": "乙卯",
+      "day_pillar": "癸亥",
+      "hour_pillar": "甲寅",
+      "day_master": "癸",
+      "five_elements": {
+        "wood": 10.0,
+        "fire": 0.5,
+        "earth": 0.2,
+        "metal": 0.0,
+        "water": 6.3
+      }
+    },
+    "source": "boundary",
+    "notes": "2023年惊蛰3月6日04:36，精确到分钟"
+  },
+  {
+    "id": "boundary_011",
+    "description": "1986年夏令时开始日—05-04 00:00 北京",
+    "input": {
+      "birth_date": "1986-05-04",
+      "birth_time": "00:00",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "丙寅",
+      "month_pillar": "壬辰",
+      "day_pillar": "戊申",
+      "hour_pillar": "壬子",
+      "day_master": "戊",
+      "five_elements": {
+        "wood": 3.0,
+        "fire": 4.0,
+        "earth": 6.3,
+        "metal": 2.3,
+        "water": 10.0
+      }
+    },
+    "source": "boundary",
+    "notes": "夏令时切换日凌晨"
+  },
+  {
+    "id": "boundary_012",
+    "description": "冬至当天出生 2022-12-22 05:48（精确交节）",
+    "input": {
+      "birth_date": "2022-12-22",
+      "birth_time": "05:48",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "壬寅",
+      "month_pillar": "壬子",
+      "day_pillar": "己酉",
+      "hour_pillar": "丁卯",
+      "day_master": "己",
+      "five_elements": {
+        "wood": 5.2,
+        "fire": 4.4,
+        "earth": 4.1,
+        "metal": 2.6,
+        "water": 10.0
+      }
+    },
+    "source": "boundary",
+    "notes": "2022年冬至12月22日05:48"
+  },
+  {
+    "id": "boundary_013",
+    "description": "1900年1月31日基准锚点—甲午日验证",
+    "input": {
+      "birth_date": "1900-01-31",
+      "birth_time": "12:00",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "庚子",
+      "month_pillar": "丁丑",
+      "day_pillar": "甲午",
+      "hour_pillar": "庚午",
+      "day_master": "甲"
+    },
+    "source": "known_library_issue",
+    "notes": "1900-01-31为甲午日，是系统计算锚点"
+  },
+  {
+    "id": "boundary_014",
+    "description": "1900年1月30日夜子时—锚点前1天",
+    "input": {
+      "birth_date": "1900-01-30",
+      "birth_time": "23:30",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "庚子",
+      "month_pillar": "丁丑",
+      "day_pillar": "癸巳",
+      "hour_pillar": "戊子",
+      "day_master": "癸"
+    },
+    "source": "known_library_issue",
+    "notes": "锚点前1天夜子时，需逆向推算"
+  },
+  {
+    "id": "boundary_015",
+    "description": "伦敦出生—1990-07-01 10:00 BST",
+    "input": {
+      "birth_date": "1990-07-01",
+      "birth_time": "10:00",
+      "birth_place": {
+        "city": "London",
+        "country": "GB"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "庚午",
+      "month_pillar": "壬午",
+      "day_pillar": "丁卯",
+      "hour_pillar": "乙巳",
+      "day_master": "丁",
+      "five_elements": {
+        "wood": 5.5,
+        "fire": 10.0,
+        "earth": 1.9,
+        "metal": 3.5,
+        "water": 3.2
+      }
+    },
+    "source": "boundary",
+    "notes": "伦敦时区UTC+0/BST"
+  },
+  {
+    "id": "boundary_016",
+    "description": "悉尼出生—1995-01-01 06:00 AEDT",
+    "input": {
+      "birth_date": "1995-01-01",
+      "birth_time": "06:00",
+      "birth_place": {
+        "city": "Sydney",
+        "country": "AU"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "甲戌",
+      "month_pillar": "丙子",
+      "day_pillar": "壬辰",
+      "hour_pillar": "癸卯",
+      "day_master": "壬",
+      "five_elements": {
+        "wood": 6.8,
+        "fire": 3.9,
+        "earth": 5.0,
+        "metal": 0.7,
+        "water": 10.0
+      }
+    },
+    "source": "boundary",
+    "notes": "南半球+夏令时"
+  },
+  {
+    "id": "boundary_017",
+    "description": "子时0点整出生—00:00 1990-06-16",
+    "input": {
+      "birth_date": "1990-06-16",
+      "birth_time": "00:00",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "庚午",
+      "month_pillar": "壬午",
+      "day_pillar": "壬子",
+      "hour_pillar": "庚子",
+      "day_master": "壬",
+      "five_elements": {
+        "wood": 0.0,
+        "fire": 4.1,
+        "earth": 1.2,
+        "metal": 5.9,
+        "water": 10.0
+      }
+    },
+    "source": "boundary",
+    "notes": "子时0点整，属于早子时"
+  },
+  {
+    "id": "boundary_018",
+    "description": "小寒当天—01-05 23:00 2025",
+    "input": {
+      "birth_date": "2025-01-05",
+      "birth_time": "23:00",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "甲辰",
+      "month_pillar": "丁丑",
+      "day_pillar": "甲戌",
+      "hour_pillar": "丙子",
+      "day_master": "甲",
+      "five_elements": {
+        "wood": 10.0,
+        "fire": 9.5,
+        "earth": 9.5,
+        "metal": 1.4,
+        "water": 4.5
+      }
+    },
+    "source": "boundary",
+    "notes": "小寒为丑月起点"
+  },
+  {
+    "id": "boundary_019",
+    "description": "夏至当天—06-21 14:00 2024",
+    "input": {
+      "birth_date": "2024-06-21",
+      "birth_time": "14:00",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "甲辰",
+      "month_pillar": "庚午",
+      "day_pillar": "丙辰",
+      "hour_pillar": "乙未",
+      "day_master": "丙",
+      "five_elements": {
+        "wood": 10.0,
+        "fire": 7.6,
+        "earth": 9.2,
+        "metal": 4.0,
+        "water": 0.8
+      }
+    },
+    "source": "boundary",
+    "notes": "夏至为午月中间节点"
+  },
+  {
+    "id": "boundary_020",
+    "description": "闰二月出生—2004-03-21（农历闰二月）",
+    "input": {
+      "birth_date": "2004-03-21",
+      "birth_time": "06:00",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "甲申",
+      "month_pillar": "丁卯",
+      "day_pillar": "己亥",
+      "hour_pillar": "丁卯",
+      "day_master": "己",
+      "five_elements": {
+        "wood": 10.0,
+        "fire": 7.7,
+        "earth": 4.2,
+        "metal": 2.7,
+        "water": 3.5
+      }
+    },
+    "source": "boundary",
+    "notes": "2004年农历闰二月"
+  },
+  {
+    "id": "boundary_021",
+    "description": "1987年夏令时结束—09-13 02:00（夏令时最后一天）",
+    "input": {
+      "birth_date": "1987-09-13",
+      "birth_time": "02:00",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "丁卯",
+      "month_pillar": "己酉",
+      "day_pillar": "乙丑",
+      "hour_pillar": "丁丑",
+      "day_master": "乙",
+      "five_elements": {
+        "wood": 7.1,
+        "fire": 8.3,
+        "earth": 10.0,
+        "metal": 3.8,
+        "water": 1.7
+      }
+    },
+    "source": "boundary",
+    "notes": "中国1987年夏令时到9月13日结束"
+  },
+  {
+    "id": "boundary_022",
+    "description": "东京出生—2000-03-01 08:00 JST",
+    "input": {
+      "birth_date": "2000-03-01",
+      "birth_time": "08:00",
+      "birth_place": {
+        "city": "Tokyo",
+        "country": "JP"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "庚辰",
+      "month_pillar": "戊寅",
+      "day_pillar": "戊午",
+      "hour_pillar": "丙辰",
+      "day_master": "戊",
+      "five_elements": {
+        "wood": 3.0,
+        "fire": 5.1,
+        "earth": 10.0,
+        "metal": 2.7,
+        "water": 0.5
+      }
+    },
+    "source": "boundary",
+    "notes": "东京时区UTC+9"
+  },
+  {
+    "id": "boundary_023",
+    "description": "洛杉矶出生—2005-07-15 15:00 PDT",
+    "input": {
+      "birth_date": "2005-07-15",
+      "birth_time": "15:00",
+      "birth_place": {
+        "city": "Los Angeles",
+        "country": "US"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "乙酉",
+      "month_pillar": "癸未",
+      "day_pillar": "庚子",
+      "hour_pillar": "甲申",
+      "day_master": "庚",
+      "five_elements": {
+        "wood": 8.8,
+        "fire": 0.8,
+        "earth": 3.3,
+        "metal": 10.0,
+        "water": 7.9
+      }
+    },
+    "source": "boundary",
+    "notes": "洛杉矶UTC-7（夏令时）"
+  },
+  {
+    "id": "boundary_024",
+    "description": "1900年12月31日—世纪交界",
+    "input": {
+      "birth_date": "1900-12-31",
+      "birth_time": "23:59",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "庚子",
+      "month_pillar": "戊子",
+      "day_pillar": "戊戌",
+      "hour_pillar": "壬子",
+      "day_master": "戊"
+    },
+    "source": "known_library_issue",
+    "notes": "世纪交界夜子时"
+  },
+  {
+    "id": "boundary_025",
+    "description": "2000年1月1日00:00—千禧年",
+    "input": {
+      "birth_date": "2000-01-01",
+      "birth_time": "00:00",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "己卯",
+      "month_pillar": "丙子",
+      "day_pillar": "戊午",
+      "hour_pillar": "壬子",
+      "day_master": "戊",
+      "five_elements": {
+        "wood": 2.9,
+        "fire": 7.1,
+        "earth": 9.2,
+        "metal": 0.0,
+        "water": 10.0
+      }
+    },
+    "source": "boundary",
+    "notes": "千禧年，仍在己卯年（立春前）"
+  },
+  {
+    "id": "boundary_026",
+    "description": "新加坡出生—1998-08-08 20:00 SGT",
+    "input": {
+      "birth_date": "1998-08-08",
+      "birth_time": "20:00",
+      "birth_place": {
+        "city": "Singapore",
+        "country": "SG"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "戊寅",
+      "month_pillar": "庚申",
+      "day_pillar": "丁亥",
+      "hour_pillar": "庚戌",
+      "day_master": "丁",
+      "five_elements": {
+        "wood": 3.1,
+        "fire": 4.5,
+        "earth": 6.6,
+        "metal": 10.0,
+        "water": 3.1
+      }
+    },
+    "source": "boundary",
+    "notes": "新加坡UTC+8"
+  },
+  {
+    "id": "boundary_027",
+    "description": "2030年2月4日—立春当天08:00（立春前）",
+    "input": {
+      "birth_date": "2030-02-04",
+      "birth_time": "08:00",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "庚戌",
+      "month_pillar": "戊寅",
+      "day_pillar": "庚午",
+      "hour_pillar": "庚辰",
+      "day_master": "庚",
+      "five_elements": {
+        "wood": 2.8,
+        "fire": 3.1,
+        "earth": 8.4,
+        "metal": 10.0,
+        "water": 0.3
+      }
+    },
+    "source": "boundary",
+    "notes": "2030年立春2月4日约10:00，08:00仍在己酉年"
+  },
+  {
+    "id": "boundary_028",
+    "description": "乌鲁木齐出生—1992-11-18 14:00（跨经度城市）",
+    "input": {
+      "birth_date": "1992-11-18",
+      "birth_time": "14:00",
+      "birth_place": {
+        "city": "乌鲁木齐",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "壬申",
+      "month_pillar": "辛亥",
+      "day_pillar": "戊戌",
+      "hour_pillar": "己未",
+      "day_master": "戊",
+      "five_elements": {
+        "wood": 0.9,
+        "fire": 0.9,
+        "earth": 10.0,
+        "metal": 5.4,
+        "water": 5.4
+      }
+    },
+    "source": "boundary",
+    "notes": "乌鲁木齐实际经度87°E，需真太阳时修正"
+  },
+  {
+    "id": "boundary_029",
+    "description": "夜子时23:50—1995-12-31（跨年夜子时）",
+    "input": {
+      "birth_date": "1995-12-31",
+      "birth_time": "23:50",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "乙亥",
+      "month_pillar": "戊子",
+      "day_pillar": "壬寅",
+      "hour_pillar": "庚子",
+      "day_master": "壬"
+    },
+    "source": "known_library_issue",
+    "notes": "跨年夜子时，日柱不进位"
+  },
+  {
+    "id": "boundary_030",
+    "description": "清明当天—2023-04-05 09:13 北京（精确交节）",
+    "input": {
+      "birth_date": "2023-04-05",
+      "birth_time": "09:13",
+      "birth_place": {
+        "city": "北京",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "癸卯",
+      "month_pillar": "丙辰",
+      "day_pillar": "癸巳",
+      "hour_pillar": "丁巳",
+      "day_master": "癸",
+      "five_elements": {
+        "wood": 2.6,
+        "fire": 10.0,
+        "earth": 3.2,
+        "metal": 0.6,
+        "water": 6.2
+      }
+    },
+    "source": "boundary",
+    "notes": "2023年清明4月5日09:13"
+  }
+]

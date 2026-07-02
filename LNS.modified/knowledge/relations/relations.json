@@ -1,0 +1,236 @@
+[
+  {
+    "id": "rel_001",
+    "relation": "六合",
+    "pair": "子丑",
+    "display_name": "子丑合",
+    "description": "合化土，增强稳定性和执行力",
+    "risk": "过度依赖",
+    "opportunity": "合作顺利"
+  },
+  {
+    "id": "rel_002",
+    "relation": "六合",
+    "pair": "寅亥",
+    "display_name": "寅亥合",
+    "description": "合化木，增强成长力和创造力",
+    "risk": "方向分散",
+    "opportunity": "创新突破"
+  },
+  {
+    "id": "rel_003",
+    "relation": "六合",
+    "pair": "卯戌",
+    "display_name": "卯戌合",
+    "description": "合化火，增强表达力和行动力",
+    "risk": "冲动",
+    "opportunity": "快速推进"
+  },
+  {
+    "id": "rel_004",
+    "relation": "六合",
+    "pair": "辰酉",
+    "display_name": "辰酉合",
+    "description": "合化金，增强规则性和执行力",
+    "risk": "刻板",
+    "opportunity": "规范管理"
+  },
+  {
+    "id": "rel_005",
+    "relation": "六合",
+    "pair": "巳申",
+    "display_name": "巳申合",
+    "description": "合化水，增强适应力和思维能力",
+    "risk": "反复不定",
+    "opportunity": "灵活变通"
+  },
+  {
+    "id": "rel_006",
+    "relation": "六合",
+    "pair": "午未",
+    "display_name": "午未合",
+    "description": "合化土，增强稳定输出",
+    "risk": "保守",
+    "opportunity": "持续积累"
+  },
+  {
+    "id": "rel_007",
+    "relation": "三合",
+    "pair": "申子辰",
+    "display_name": "申子辰合水局",
+    "description": "合化水，增强智慧和适应能力",
+    "risk": "方向不稳",
+    "opportunity": "跨界整合"
+  },
+  {
+    "id": "rel_008",
+    "relation": "三合",
+    "pair": "亥卯未",
+    "display_name": "亥卯未合木局",
+    "description": "合化木，增强成长和创新能力",
+    "risk": "空想过多",
+    "opportunity": "系统成长"
+  },
+  {
+    "id": "rel_009",
+    "relation": "三合",
+    "pair": "寅午戌",
+    "display_name": "寅午戌合火局",
+    "description": "合化火，增强表达和影响力",
+    "risk": "情绪过激",
+    "opportunity": "扩大影响"
+  },
+  {
+    "id": "rel_010",
+    "relation": "三合",
+    "pair": "巳酉丑",
+    "display_name": "巳酉丑合金局",
+    "description": "合化金，增强规则和执行效率",
+    "risk": "缺乏弹性",
+    "opportunity": "高效执行"
+  },
+  {
+    "id": "rel_011",
+    "relation": "六冲",
+    "pair": "子午",
+    "display_name": "子午冲",
+    "description": "水火相冲，情绪波动大",
+    "risk": "决策不稳定",
+    "opportunity": "突破性变化"
+  },
+  {
+    "id": "rel_012",
+    "relation": "六冲",
+    "pair": "丑未",
+    "display_name": "丑未冲",
+    "description": "土土相冲，结构性变化",
+    "risk": "根基动摇",
+    "opportunity": "结构调整"
+  },
+  {
+    "id": "rel_013",
+    "relation": "六冲",
+    "pair": "寅申",
+    "display_name": "寅申冲",
+    "description": "金木相冲，变动与压力",
+    "risk": "奔波压力",
+    "opportunity": "快速成长"
+  },
+  {
+    "id": "rel_014",
+    "relation": "六冲",
+    "pair": "卯酉",
+    "display_name": "卯酉冲",
+    "description": "金木相冲，人际关系紧张",
+    "risk": "人际冲突",
+    "opportunity": "突破瓶颈"
+  },
+  {
+    "id": "rel_015",
+    "relation": "六冲",
+    "pair": "辰戌",
+    "display_name": "辰戌冲",
+    "description": "土土相冲，职业变动",
+    "risk": "职业不稳",
+    "opportunity": "路径转换"
+  },
+  {
+    "id": "rel_016",
+    "relation": "六冲",
+    "pair": "巳亥",
+    "display_name": "巳亥冲",
+    "description": "水火相冲，思想波动",
+    "risk": "方向迷失",
+    "opportunity": "思路开拓"
+  },
+  {
+    "id": "rel_017",
+    "relation": "六害",
+    "pair": "子未",
+    "display_name": "子未害",
+    "description": "水土相害，干扰与内耗",
+    "risk": "精力分散",
+    "opportunity": "注意细节"
+  },
+  {
+    "id": "rel_018",
+    "relation": "六害",
+    "pair": "丑午",
+    "display_name": "丑午害",
+    "description": "火土相害，情绪干扰",
+    "risk": "人际关系紧张",
+    "opportunity": "提升情商"
+  },
+  {
+    "id": "rel_019",
+    "relation": "六害",
+    "pair": "寅巳",
+    "display_name": "寅巳害",
+    "description": "木火相害，急躁冒进",
+    "risk": "判断失误",
+    "opportunity": "放缓节奏"
+  },
+  {
+    "id": "rel_020",
+    "relation": "六害",
+    "pair": "卯辰",
+    "display_name": "卯辰害",
+    "description": "土木相害，执行受阻",
+    "risk": "计划拖延",
+    "opportunity": "重新规划"
+  },
+  {
+    "id": "rel_021",
+    "relation": "六害",
+    "pair": "申亥",
+    "display_name": "申亥害",
+    "description": "金水相害，沟通障碍",
+    "risk": "信息误判",
+    "opportunity": "加强沟通"
+  },
+  {
+    "id": "rel_022",
+    "relation": "六害",
+    "pair": "酉戌",
+    "display_name": "酉戌害",
+    "description": "金土相害，利益冲突",
+    "risk": "财务纠纷",
+    "opportunity": "厘清权责"
+  },
+  {
+    "id": "rel_023",
+    "relation": "三刑",
+    "pair": "寅巳申",
+    "display_name": "寅巳申三刑",
+    "description": "木火金相刑，压力与冲突集中",
+    "risk": "多重压力",
+    "opportunity": "强化抗压"
+  },
+  {
+    "id": "rel_024",
+    "relation": "三刑",
+    "pair": "丑未戌",
+    "display_name": "丑未戌三刑",
+    "description": "土土相刑，结构性问题浮现",
+    "risk": "根基不稳",
+    "opportunity": "结构性调整"
+  },
+  {
+    "id": "rel_025",
+    "relation": "三刑",
+    "pair": "子卯",
+    "display_name": "子卯刑",
+    "description": "水木相刑，情绪与行动冲突",
+    "risk": "情绪压抑",
+    "opportunity": "情感疏导"
+  },
+  {
+    "id": "rel_026",
+    "relation": "三刑",
+    "pair": "辰辰/午午/酉酉/亥亥",
+    "display_name": "自刑",
+    "description": "同柱自刑，自我矛盾",
+    "risk": "内耗",
+    "opportunity": "自我认知提升"
+  }
+]

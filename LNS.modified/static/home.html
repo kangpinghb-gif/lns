@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <base href="/lns/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LNS · 首页</title>
+  <link rel="stylesheet" href="static/ui-shell.css">
+</head>
+<body class="ui-shell">
+  <header class="shell-header">
+    <div class="shell-header__inner">
+      <a class="brand" href="home.html">
+        <span class="brand__mark">
+          <img src="static/assets/lns-logo-icon.png" alt="LNS logo">
+        </span>
+        <img class="brand__wordmark" src="static/assets/lns-logo-wordmark.png" alt="LNS Life Navigation System">
+      </a>
+      <nav class="primary-nav">
+        <a class="primary-nav__link" data-nav href="home.html">首页</a>
+        <a class="primary-nav__link" data-nav href="create.html">生成入口</a>
+        <a class="primary-nav__link" data-nav href="kline.html">人生K线</a>
+        <a class="primary-nav__link" data-nav href="analysis.html">命理透视</a>
+        <a class="primary-nav__link" data-nav href="year-detail.html">流年详情</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <section class="hero-panel">
+      <div class="hero-layout">
+        <div>
+          <a class="brand brand--hero" href="home.html">
+            <span class="brand__mark">
+              <img src="static/assets/lns-logo-icon.png" alt="LNS logo">
+            </span>
+            <img class="brand__wordmark" src="static/assets/lns-logo-wordmark.png" alt="LNS Life Navigation System">
+          </a>
+          <div class="eyebrow">人生导航系统</div>
+          <h1 class="hero-title">看清当下<br>把握未来</h1>
+          <p class="hero-copy">
+            基于时间与结构模型的人生决策导航系统。
+            先给结果，再给依据，再给行动建议，让复杂命理信息变成可以执行的阅读路径。
+          </p>
+          <p class="hero-copy brand-copy">
+            这版 UI 已切到品牌化骨架：页头、首页主视觉、按钮和氛围图统一到同一套 LNS 识别系统。
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn--primary" href="create.html">开始生成报告</a>
+            <a class="btn btn--ghost" href="kline.html">直接查看结构样例</a>
+          </div>
+
+          <div class="chip-row">
+            <span class="chip">洞察当前状态</span>
+            <span class="chip">规划未来路径</span>
+            <span class="chip">识别风险机会</span>
+            <span class="chip">持续优化成长</span>
+          </div>
+        </div>
+
+        <div class="hero-chart">
+          <div class="chart-grid" aria-label="人生趋势示意图">
+            <div class="chart-grid__bar" style="height: 18%;" data-label="10岁"></div>
+            <div class="chart-grid__bar" style="height: 32%;" data-label="15岁"></div>
+            <div class="chart-grid__bar" style="height: 48%;" data-label="20岁"></div>
+            <div class="chart-grid__bar" style="height: 56%;" data-label="25岁"></div>
+            <div class="chart-grid__bar" style="height: 70%;" data-label="30岁"></div>
+            <div class="chart-grid__bar" style="height: 83%;" data-label="35岁"></div>
+            <div class="chart-grid__bar is-down" style="height: 46%;" data-label="40岁"></div>
+            <div class="chart-grid__bar" style="height: 60%;" data-label="45岁"></div>
+            <div class="chart-grid__bar" style="height: 74%;" data-label="50岁"></div>
+            <div class="chart-grid__bar is-down" style="height: 40%;" data-label="55岁"></div>
+            <div class="chart-grid__bar" style="height: 54%;" data-label="60岁"></div>
+            <div class="chart-grid__bar" style="height: 62%;" data-label="65岁"></div>
+          </div>
+          <p class="footer-note">示意图只承担结构表达，不绑定真实计算逻辑。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">前端页面树</h2>
+          <p class="section-subtitle">这一版先把多页面骨架搭出来，不强行做大单页。</p>
+        </div>
+      </div>
+
+      <div class="grid-4">
+        <article class="panel">
+          <div class="card-kicker">Page 1</div>
+          <div class="metric-card__value">Input</div>
+          <p class="metric-card__note">收集出生信息，降低首屏阻力。</p>
+          <div class="tag-list">
+            <span class="tag">姓名</span>
+            <span class="tag">性别</span>
+            <span class="tag">出生时间</span>
+            <span class="tag">出生地</span>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="card-kicker">Page 2</div>
+          <div class="metric-card__value">Kline</div>
+          <p class="metric-card__note">先给总览结果和当前阶段，不塞长文解释。</p>
+          <div class="tag-list">
+            <span class="tag">趋势图</span>
+            <span class="tag">状态指标</span>
+            <span class="tag">命局摘要</span>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="card-kicker">Page 3</div>
+          <div class="metric-card__value">Analysis</div>
+          <p class="metric-card__note">解释命理结构、五行分布与当前判断来源。</p>
+          <div class="tag-list">
+            <span class="tag">四柱</span>
+            <span class="tag">五行</span>
+            <span class="tag">性格向量</span>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="card-kicker">Page 4</div>
+          <div class="metric-card__value">Year Detail</div>
+          <p class="metric-card__note">拆开某一年的事业、财运、健康与感情。</p>
+          <div class="tag-list">
+            <span class="tag">年度总评</span>
+            <span class="tag">宜忌</span>
+            <span class="tag">上下年切换</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="static/ui-shell.js"></script>
+</body>
+</html>

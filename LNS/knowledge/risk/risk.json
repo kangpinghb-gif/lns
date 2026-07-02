@@ -1,0 +1,68 @@
+[
+  {
+    "id": "risk_001",
+    "category": "财务风险",
+    "source": "偏财过旺/劫财无制",
+    "behavior": [
+      "冲动投资",
+      "过度消费"
+    ],
+    "level": "high",
+    "advice": "建立财务预算和风险缓冲"
+  },
+  {
+    "id": "risk_002",
+    "category": "职业风险",
+    "source": "七杀无印/伤官见官",
+    "behavior": [
+      "职业频繁变动",
+      "职场冲突"
+    ],
+    "level": "high",
+    "advice": "寻找稳定的支持系统"
+  },
+  {
+    "id": "risk_003",
+    "category": "情绪风险",
+    "source": "五行极度失衡/火水未济",
+    "behavior": [
+      "情绪剧烈波动",
+      "冲动决策"
+    ],
+    "level": "medium",
+    "advice": "建立情绪管理机制"
+  },
+  {
+    "id": "risk_004",
+    "category": "关系风险",
+    "source": "比劫夺财/伤官克官",
+    "behavior": [
+      "人际关系紧张",
+      "合作破裂"
+    ],
+    "level": "medium",
+    "advice": "加强沟通，明确边界"
+  },
+  {
+    "id": "risk_005",
+    "category": "健康风险",
+    "source": "五行缺一/过旺无制",
+    "behavior": [
+      "长期亚健康",
+      "免疫力下降"
+    ],
+    "level": "medium",
+    "advice": "对应元素的生活调整和养生"
+  },
+  {
+    "id": "risk_006",
+    "category": "决策风险",
+    "source": "羊刃/劫煞/空亡",
+    "behavior": [
+      "重大决策失误",
+      "判断偏差"
+    ],
+    "level": "high",
+    "advice": "重大决策延迟24小时"
+  }
+]

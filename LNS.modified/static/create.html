@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <base href="/lns/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LNS · 生成入口</title>
+  <link rel="stylesheet" href="static/ui-shell.css">
+</head>
+<body class="ui-shell">
+  <header class="shell-header">
+    <div class="shell-header__inner">
+      <a class="brand" href="home.html">
+        <span class="brand__mark">
+          <img src="static/assets/lns-logo-icon.png" alt="LNS logo">
+        </span>
+        <img class="brand__wordmark" src="static/assets/lns-logo-wordmark.png" alt="LNS Life Navigation System">
+      </a>
+      <nav class="primary-nav">
+        <a class="primary-nav__link" data-nav href="home.html">首页</a>
+        <a class="primary-nav__link" data-nav href="create.html">生成入口</a>
+        <a class="primary-nav__link" data-nav href="kline.html">人生K线</a>
+        <a class="primary-nav__link" data-nav href="analysis.html">命理透视</a>
+        <a class="primary-nav__link" data-nav href="year-detail.html">流年详情</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <section class="panel panel--hero-brand">
+      <div class="section-head">
+        <div>
+          <h1 class="page-title">输入出生信息</h1>
+          <p class="page-copy">先完成命理画像的基础采集，再进入趋势总览。这里承担的是进入门槛控制，不是结果解释。</p>
+        </div>
+      </div>
+
+      <form id="birthProfileForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">姓名</label>
+            <input id="name" name="name" type="text" placeholder="请输入姓名" required>
+          </div>
+
+          <div class="field">
+            <label for="gender">性别</label>
+            <select id="gender" name="gender" required>
+              <option value="男">男</option>
+              <option value="女">女</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="birthDate">出生日期</label>
+            <input id="birthDate" name="birthDate" type="date" required>
+          </div>
+
+          <div class="field">
+            <label for="birthTime">出生时间</label>
+            <input id="birthTime" name="birthTime" type="time" required>
+          </div>
+
+          <div class="field">
+            <label for="calendarType">历法类型</label>
+            <select id="calendarType" name="calendarType">
+              <option value="公历">公历</option>
+              <option value="农历">农历</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="city">出生地</label>
+            <input id="city" name="city" type="text" placeholder="例如：北京" required>
+          </div>
+
+          <div class="field">
+            <label for="timezone">时区</label>
+            <input id="timezone" name="timezone" type="text" placeholder="例如：Asia/Shanghai">
+          </div>
+
+          <div class="field">
+            <label for="useSolarTimeCorrection">真太阳时校正</label>
+            <select id="useSolarTimeCorrection" name="useSolarTimeCorrection">
+              <option value="">关闭</option>
+              <option value="1">开启</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <p class="muted" data-create-status>填写完成后将调用真实后端接口生成报告。</p>
+          <button class="btn btn--primary" type="submit">生成我的人生报告</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="static/ui-shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+[
+  {
+    "id": "car_001",
+    "category": "创业",
+    "suitable_gods": [
+      "伤官",
+      "偏财",
+      "七杀"
+    ],
+    "suitable_elements": [
+      "fire",
+      "wood"
+    ],
+    "description": "自主创业或自由职业",
+    "capability": [
+      "创新能力",
+      "执行突破",
+      "商业嗅觉"
+    ],
+    "risk": [
+      "财务波动",
+      "压力过载"
+    ],
+    "advice": "适合有创新能力的人，但需注意风险控制"
+  },
+  {
+    "id": "car_002",
+    "category": "体制内",
+    "suitable_gods": [
+      "正官",
+      "正印"
+    ],
+    "suitable_elements": [
+      "earth",
+      "metal"
+    ],
+    "description": "公务员、国企、事业单位",
+    "capability": [
+      "规则执行",
+      "秩序维护",
+      "学习吸收"
+    ],
+    "risk": [
+      "灵活性不足",
+      "增长缓慢"
+    ],
+    "advice": "适合规则清晰的环境"
+  },
+  {
+    "id": "car_003",
+    "category": "创意行业",
+    "suitable_gods": [
+      "食神",
+      "伤官"
+    ],
+    "suitable_elements": [
+      "fire"
+    ],
+    "description": "内容创作、设计、媒体、艺术",
+    "capability": [
+      "创造能力",
+      "表达能力"
+    ],
+    "risk": [
+      "过度舒适区",
+      "冲突管理弱"
+    ],
+    "advice": "适合长期输出型路径"
+  },
+  {
+    "id": "car_004",
+    "category": "技术研发",
+    "suitable_gods": [
+      "偏印",
+      "正印"
+    ],
+    "suitable_elements": [
+      "metal",
+      "water"
+    ],
+    "description": "科研、技术开发、工程",
+    "capability": [
+      "独立思考",
+      "学习吸收"
+    ],
+    "risk": [
+      "与社会脱节"
+    ],
+    "advice": "适合知识密集型路径"
+  },
+  {
+    "id": "car_005",
+    "category": "金融投资",
+    "suitable_gods": [
+      "正财",
+      "偏财"
+    ],
+    "suitable_elements": [
+      "metal",
+      "water"
+    ],
+    "description": "金融、投资、财务",
+    "capability": [
+      "财务管理",
+      "资源整合"
+    ],
+    "risk": [
+      "波动性高",
+      "增长缓慢"
+    ],
+    "advice": "适合稳健型或机会型分别选择"
+  },
+  {
+    "id": "car_006",
+    "category": "销售市场",
+    "suitable_gods": [
+      "劫财",
+      "偏财"
+    ],
+    "suitable_elements": [
+      "fire"
+    ],
+    "description": "销售、市场、商务拓展",
+    "capability": [
+      "执行突破",
+      "机会捕捉"
+    ],
+    "risk": [
+      "冲动决策"
+    ],
+    "advice": "适合高频行动，需强化风险控制"
+  },
+  {
+    "id": "car_007",
+    "category": "管理运营",
+    "suitable_gods": [
+      "正官",
+      "正财"
+    ],
+    "suitable_elements": [
+      "earth"
+    ],
+    "description": "企业管理者、运营总监",
+    "capability": [
+      "规则执行",
+      "资源规划",
+      "稳定性"
+    ],
+    "risk": [
+      "保守"
+    ],
+    "advice": "适合长期稳定路径"
+  },
+  {
+    "id": "car_008",
+    "category": "咨询顾问",
+    "suitable_gods": [
+      "正印",
+      "偏印"
+    ],
+    "suitable_elements": [
+      "water"
+    ],
+    "description": "管理咨询、战略顾问",
+    "capability": [
+      "信息整合",
+      "系统化思考"
+    ],
+    "risk": [
+      "方向不稳定"
+    ],
+    "advice": "适合跨界整合型人才"
+  }
+]

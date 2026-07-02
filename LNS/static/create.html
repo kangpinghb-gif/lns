@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LNS · 生成入口</title>
+  <link rel="stylesheet" href="/static/ui-shell.css?v=2">
+</head>
+<body class="ui-shell app-page app-page--form">
+  <header class="shell-header">
+    <div class="shell-header__inner">
+      <a class="brand" href="home.html">
+        <span class="brand__mark">
+          <img src="/static/assets/lns-logo-icon.svg" alt="LNS logo">
+        </span>
+        <img class="brand__wordmark" src="/static/assets/lns-logo-wordmark.svg" alt="LNS Life Navigation System">
+      </a>
+      <nav class="primary-nav">
+        <a class="primary-nav__link" data-nav href="home.html">首页</a>
+        <a class="primary-nav__link" data-nav href="create.html">生成入口</a>
+        <a class="primary-nav__link" data-nav href="kline.html">人生K线</a>
+        <a class="primary-nav__link" data-nav href="analysis.html">命理透视</a>
+        <a class="primary-nav__link" data-nav href="year-detail.html">流年详情</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap phone-frame">
+    <section class="app-statusbar">
+      <span>9:41</span>
+      <span class="app-statusbar__icons" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M2 8.5C5.5 5 9.2 3.2 12 3.2s6.5 1.8 10 5.3"/><path d="M5 11.5c2.3-2.3 4.7-3.5 7-3.5s4.7 1.2 7 3.5"/><path d="M8 14.5c1.3-1.3 2.7-2 4-2s2.7.7 4 2"/><circle cx="12" cy="18" r="1.25"/></svg>
+        <svg viewBox="0 0 24 24"><rect x="3" y="6" width="16" height="12" rx="2"/><path d="M21 9v6"/><path d="M7 10h7"/><path d="M7 14h4"/></svg>
+      </span>
+    </section>
+
+    <section class="top-back-row">
+      <a class="icon-btn" href="home.html" aria-label="返回首页">
+        <svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7"/><path d="M9 12h11"/></svg>
+      </a>
+      <div class="top-back-row__title">建立你的命盘</div>
+      <span class="top-back-row__spacer"></span>
+    </section>
+
+    <section class="app-page-head app-page-head--compact">
+      <h1 class="app-name app-name--lg">你的出生信息</h1>
+      <p class="app-subline">用于精算八字命盘，信息仅服务于你</p>
+    </section>
+
+    <form id="birthProfileForm" class="birth-form">
+      <div class="field field--full">
+        <label for="name">姓名 <span class="field-required">*</span></label>
+        <input id="name" name="name" type="text" placeholder="李明" required>
+      </div>
+
+      <div class="field field--full">
+        <label>性别 <span class="field-required">*</span></label>
+        <div class="segmented">
+          <label class="segmented__item">
+            <input type="radio" name="gender" value="男" checked>
+            <span>男</span>
+          </label>
+          <label class="segmented__item">
+            <input type="radio" name="gender" value="女">
+            <span>女</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="birthDate">出生日期 <span class="field-required">*</span></label>
+          <input id="birthDate" name="birthDate" type="date" required>
+        </div>
+        <div class="field">
+          <label>出生时间 <span class="field-required">*</span></label>
+          <div class="time-scroll" data-time-picker>
+            <div class="time-scroll__mask"></div>
+            <div class="time-scroll__col" data-time-col="hour"></div>
+            <span class="time-scroll__sep">:</span>
+            <div class="time-scroll__col" data-time-col="minute"></div>
+          </div>
+          <input id="birthTime" name="birthTime" type="hidden" value="12:00" required>
+        </div>
+      </div>
+      <p class="field-hint">时间影响时柱，精确到小时即可。</p>
+
+      <div class="field field--full">
+        <label for="city">出生地 <span class="field-required">*</span></label>
+        <input id="city" name="city" type="text" placeholder="北京市" required>
+      </div>
+      <p class="field-hint">用于时区与真太阳时计算。</p>
+
+      <details class="advanced">
+        <summary>高级选项（历法 / 时区 / 真太阳时）</summary>
+        <div class="advanced__body">
+          <div class="field">
+            <label for="calendarType">历法类型</label>
+            <select id="calendarType" name="calendarType">
+              <option value="公历">公历</option>
+              <option value="农历">农历</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="timezone">时区</label>
+            <input id="timezone" name="timezone" type="text" placeholder="Asia/Shanghai">
+          </div>
+
+          <div class="field field--full">
+            <label for="useSolarTimeCorrection">真太阳时校正</label>
+            <select id="useSolarTimeCorrection" name="useSolarTimeCorrection">
+              <option value="">关闭</option>
+              <option value="1">开启</option>
+            </select>
+          </div>
+        </div>
+      </details>
+
+      <div class="form-actions form-actions--stacked">
+        <p class="muted" data-create-status hidden></p>
+        <button class="btn btn--primary btn--full" type="submit">生成我的命盘</button>
+        <p class="fineprint">基于八字精算，结果专属于你</p>
+      </div>
+    </form>
+
+    <nav class="app-bottom-nav" aria-label="主导航">
+      <a class="app-bottom-nav__item" data-nav href="home.html">
+        <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 10v10h14V10"/></svg>
+        <span>首页</span>
+      </a>
+      <a class="app-bottom-nav__item" data-nav href="kline.html">
+        <svg viewBox="0 0 24 24"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M7 15l4-4 3 3 6-8"/></svg>
+        <span>K线</span>
+      </a>
+      <a class="app-bottom-nav__item" data-nav href="analysis.html">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 7v5l3 2"/></svg>
+        <span>透视</span>
+      </a>
+      <a class="app-bottom-nav__item" data-nav href="year-detail.html">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M7 3v6"/><path d="M17 3v6"/><path d="M5 10h14v11H5z"/></svg>
+        <span>流年</span>
+      </a>
+      <a class="app-bottom-nav__item is-active" data-nav href="create.html">
+        <svg viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+        <span>生成</span>
+      </a>
+    </nav>
+  </main>
+
+  <script src="/static/ui-shell.js?v=2"></script>
+  <script>
+  // ── 时间滚动选择器 ──
+  (function() {
+    const picker = document.querySelector('[data-time-picker]');
+    if (!picker) return;
+
+    const cols = picker.querySelectorAll('[data-time-col]');
+    const hiddenInput = document.getElementById('birthTime');
+    if (!cols.length || !hiddenInput) return;
+
+    // 生成选项
+    const hours = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, '0'));
+    const minutes = Array.from({ length: 60 }, (_, i) => String(i).padStart(2, '0'));
+
+    // 默认时间
+    const defaultHour = '12';
+    const defaultMin = '00';
+
+    function buildCol(el, values, defaultValue) {
+      const frag = document.createDocumentFragment();
+      values.forEach(v => {
+        const item = document.createElement('div');
+        item.className = 'time-scroll__item';
+        item.textContent = v;
+        if (v === defaultValue) item.classList.add('is-selected');
+        frag.appendChild(item);
+      });
+      el.appendChild(frag);
+
+      // 滚动到默认值
+      const idx = values.indexOf(defaultValue);
+      if (idx >= 0) {
+        requestAnimationFrame(() => {
+          el.scrollTop = idx * 56;
+        });
+      }
+
+      // 点击滚动
+      el.addEventListener('click', (e) => {
+        const item = e.target.closest('.time-scroll__item');
+        if (!item) return;
+        const idx = Array.from(el.children).indexOf(item);
+        el.scrollTo({ top: idx * 56, behavior: 'smooth' });
+        updateSelection(el, values);
+        syncTime();
+      });
+    }
+
+    function updateSelection(el, values) {
+      const items = el.querySelectorAll('.time-scroll__item');
+      const center = el.scrollTop + el.clientHeight / 2;
+      let bestIdx = 0;
+      let bestDist = Infinity;
+
+      items.forEach((item, i) => {
+        const rect = item.getBoundingClientRect();
+        const elRect = el.getBoundingClientRect();
+        const itemCenter = rect.top + rect.height / 2 - elRect.top + el.scrollTop;
+        const dist = Math.abs(itemCenter - center);
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestIdx = i;
+        }
+      });
+
+      items.forEach((item, i) => {
+        item.classList.toggle('is-selected', i === bestIdx);
+      });
+    }
+
+    function syncTime() {
+      const hourCol = cols[0];
+      const minCol = cols[1];
+      const hourItems = hourCol.querySelectorAll('.time-scroll__item');
+      const minItems = minCol.querySelectorAll('.time-scroll__item');
+
+      const hour = hourCol.querySelector('.is-selected')?.textContent || defaultHour;
+      const min = minCol.querySelector('.is-selected')?.textContent || defaultMin;
+      hiddenInput.value = hour + ':' + min;
+    }
+
+    // 构建
+    buildCol(cols[0], hours, defaultHour);
+    buildCol(cols[1], minutes, defaultMin);
+
+    // 滚动检测（使用 requestAnimationFrame 节流）
+    let ticking = false;
+    const onScroll = (el, values) => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateSelection(el, values);
+          syncTime();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    cols[0].addEventListener('scroll', () => onScroll(cols[0], hours));
+    cols[1].addEventListener('scroll', () => onScroll(cols[1], minutes));
+  })();
+  </script>
+</body>
+</html>

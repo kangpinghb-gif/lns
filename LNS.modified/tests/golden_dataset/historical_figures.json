@@ -1,0 +1,582 @@
+[
+  {
+    "id": "golden_001",
+    "description": "毛泽东 — 1893-12-26 07:30 湘潭",
+    "input": {
+      "birth_date": "1893-12-26",
+      "birth_time": "07:30",
+      "birth_place": {
+        "city": "湘潭",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "癸巳",
+      "month_pillar": "甲子",
+      "day_pillar": "丁酉",
+      "hour_pillar": "甲辰",
+      "day_master": "丁",
+      "five_elements": {
+        "wood": 10.0,
+        "fire": 7.7,
+        "earth": 4.1,
+        "metal": 3.6,
+        "water": 8.2
+      }
+    },
+    "source": "cross_validated",
+    "notes": "节气：1893年立春2月4日，在12月之后"
+  },
+  {
+    "id": "golden_002",
+    "description": "周恩来 — 1898-03-05 08:00 淮安",
+    "input": {
+      "birth_date": "1898-03-05",
+      "birth_time": "08:00",
+      "birth_place": {
+        "city": "淮安",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "戊戌",
+      "month_pillar": "乙卯",
+      "day_pillar": "丁卯",
+      "hour_pillar": "甲辰",
+      "day_master": "丁",
+      "five_elements": {
+        "wood": 10.0,
+        "fire": 3.1,
+        "earth": 6.7,
+        "metal": 0.6,
+        "water": 0.3
+      }
+    },
+    "source": "cross_validated",
+    "notes": "月柱甲寅：惊蛰前为寅月"
+  },
+  {
+    "id": "golden_003",
+    "description": "邓小平 — 1904-08-22 02:00 广安",
+    "input": {
+      "birth_date": "1904-08-22",
+      "birth_time": "02:00",
+      "birth_place": {
+        "city": "广安",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "甲辰",
+      "month_pillar": "壬申",
+      "day_pillar": "戊子",
+      "hour_pillar": "癸丑",
+      "day_master": "戊",
+      "five_elements": {
+        "wood": 3.7,
+        "fire": 0.0,
+        "earth": 7.8,
+        "metal": 2.5,
+        "water": 10.0
+      }
+    },
+    "source": "cross_validated",
+    "notes": ""
+  },
+  {
+    "id": "golden_004",
+    "description": "孔子 — 公元前551-09-28 22:00 曲阜",
+    "input": {
+      "birth_date": "-0551-09-28",
+      "birth_time": "22:00",
+      "birth_place": {
+        "city": "曲阜",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "庚戌",
+      "month_pillar": "乙酉",
+      "day_pillar": "庚子",
+      "hour_pillar": "丁亥",
+      "day_master": "庚",
+      "five_elements": {
+        "wood": 2.0,
+        "fire": 2.0,
+        "earth": 2.0,
+        "metal": 5.0,
+        "water": 5.0
+      }
+    },
+    "source": "cross_validated",
+    "notes": "公元前年份需要注意纪年转换"
+  },
+  {
+    "id": "golden_005",
+    "description": "爱因斯坦 — 1879-03-14 11:30 乌尔姆",
+    "input": {
+      "birth_date": "1879-03-14",
+      "birth_time": "11:30",
+      "birth_place": {
+        "city": "Ulm",
+        "country": "DE"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "己卯",
+      "month_pillar": "丁卯",
+      "day_pillar": "丙申",
+      "hour_pillar": "甲午",
+      "day_master": "丙",
+      "five_elements": {
+        "wood": 8.9,
+        "fire": 10.0,
+        "earth": 4.8,
+        "metal": 2.6,
+        "water": 0.7
+      }
+    },
+    "source": "cross_validated",
+    "notes": "时区转换：欧洲时区需调整"
+  },
+  {
+    "id": "golden_006",
+    "description": "蒋介石 — 1887-10-31 13:00 奉化",
+    "input": {
+      "birth_date": "1887-10-31",
+      "birth_time": "13:00",
+      "birth_place": {
+        "city": "奉化",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "丁亥",
+      "month_pillar": "庚戌",
+      "day_pillar": "乙未",
+      "hour_pillar": "癸未",
+      "day_master": "乙",
+      "five_elements": {
+        "wood": 3.0,
+        "fire": 3.0,
+        "earth": 4.0,
+        "metal": 4.0,
+        "water": 4.0
+      }
+    },
+    "source": "known_library_issue",
+    "notes": ""
+  },
+  {
+    "id": "golden_007",
+    "description": "鲁迅 — 1881-09-25 21:00 绍兴",
+    "input": {
+      "birth_date": "1881-09-25",
+      "birth_time": "21:00",
+      "birth_place": {
+        "city": "绍兴",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "辛巳",
+      "month_pillar": "丁酉",
+      "day_pillar": "壬戌",
+      "hour_pillar": "辛亥",
+      "day_master": "壬",
+      "five_elements": {
+        "wood": 0.7,
+        "fire": 6.0,
+        "earth": 3.0,
+        "metal": 10.0,
+        "water": 5.7
+      }
+    },
+    "source": "cross_validated",
+    "notes": ""
+  },
+  {
+    "id": "golden_008",
+    "description": "曾国藩 — 1811-11-26 22:00 湘乡",
+    "input": {
+      "birth_date": "1811-11-26",
+      "birth_time": "22:00",
+      "birth_place": {
+        "city": "湘乡",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "辛未",
+      "month_pillar": "己亥",
+      "day_pillar": "丙辰",
+      "hour_pillar": "己亥",
+      "day_master": "丙",
+      "five_elements": {
+        "wood": 2.1,
+        "fire": 3.5,
+        "earth": 10.0,
+        "metal": 2.9,
+        "water": 4.4
+      }
+    },
+    "source": "cross_validated",
+    "notes": "夜子时22:00，属于亥时"
+  },
+  {
+    "id": "golden_009",
+    "description": "武则天 — 624-02-17 06:00 文水",
+    "input": {
+      "birth_date": "0624-02-17",
+      "birth_time": "06:00",
+      "birth_place": {
+        "city": "文水",
+        "country": "CN"
+      },
+      "gender": "female"
+    },
+    "expected": {
+      "year_pillar": "甲申",
+      "month_pillar": "丙寅",
+      "day_pillar": "甲午",
+      "hour_pillar": "丁卯",
+      "day_master": "甲",
+      "five_elements": {
+        "wood": 10.0,
+        "fire": 8.5,
+        "earth": 1.2,
+        "metal": 2.1,
+        "water": 0.6
+      }
+    },
+    "source": "cross_validated",
+    "notes": "唐代年份，女性"
+  },
+  {
+    "id": "golden_010",
+    "description": "李白 — 701-02-08 03:00 碎叶城",
+    "input": {
+      "birth_date": "0701-02-08",
+      "birth_time": "03:00",
+      "birth_place": {
+        "city": "碎叶城",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "庚子",
+      "month_pillar": "庚寅",
+      "day_pillar": "庚午",
+      "hour_pillar": "戊寅",
+      "day_master": "庚",
+      "five_elements": {
+        "wood": 4.7,
+        "fire": 3.7,
+        "earth": 4.7,
+        "metal": 10.0,
+        "water": 2.3
+      }
+    },
+    "source": "cross_validated",
+    "notes": "立春后出生"
+  },
+  {
+    "id": "golden_011",
+    "description": "孙中山 — 1866-11-12 02:00 中山",
+    "input": {
+      "birth_date": "1866-11-12",
+      "birth_time": "02:00",
+      "birth_place": {
+        "city": "中山",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "丙寅",
+      "month_pillar": "己亥",
+      "day_pillar": "辛卯",
+      "hour_pillar": "己丑",
+      "day_master": "辛",
+      "five_elements": {
+        "wood": 5.7,
+        "fire": 4.3,
+        "earth": 10.0,
+        "metal": 3.9,
+        "water": 3.2
+      }
+    },
+    "source": "cross_validated",
+    "notes": ""
+  },
+  {
+    "id": "golden_012",
+    "description": "袁世凯 — 1859-09-16 12:00 项城",
+    "input": {
+      "birth_date": "1859-09-16",
+      "birth_time": "12:00",
+      "birth_place": {
+        "city": "项城",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "己未",
+      "month_pillar": "癸酉",
+      "day_pillar": "丁巳",
+      "hour_pillar": "丙午",
+      "day_master": "丁",
+      "five_elements": {
+        "wood": 0.3,
+        "fire": 10.0,
+        "earth": 5.8,
+        "metal": 2.2,
+        "water": 2.8
+      }
+    },
+    "source": "cross_validated",
+    "notes": ""
+  },
+  {
+    "id": "golden_013",
+    "description": "宋美龄 — 1897-03-23 16:00 上海",
+    "input": {
+      "birth_date": "1897-03-23",
+      "birth_time": "16:00",
+      "birth_place": {
+        "city": "上海",
+        "country": "CN"
+      },
+      "gender": "female"
+    },
+    "expected": {
+      "year_pillar": "丁酉",
+      "month_pillar": "癸卯",
+      "day_pillar": "庚辰",
+      "hour_pillar": "甲申",
+      "day_master": "庚",
+      "five_elements": {
+        "wood": 7.9,
+        "fire": 4.2,
+        "earth": 3.3,
+        "metal": 10.0,
+        "water": 5.4
+      }
+    },
+    "source": "cross_validated",
+    "notes": "女性"
+  },
+  {
+    "id": "golden_014",
+    "description": "朱镕基 — 1928-10-23 12:00 长沙",
+    "input": {
+      "birth_date": "1928-10-23",
+      "birth_time": "12:00",
+      "birth_place": {
+        "city": "长沙",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "戊辰",
+      "month_pillar": "壬戌",
+      "day_pillar": "丙申",
+      "hour_pillar": "甲午",
+      "day_master": "丙",
+      "five_elements": {
+        "wood": 4.4,
+        "fire": 6.7,
+        "earth": 10.0,
+        "metal": 3.3,
+        "water": 4.8
+      }
+    },
+    "source": "cross_validated",
+    "notes": ""
+  },
+  {
+    "id": "golden_015",
+    "description": "爱迪生 — 1847-02-11 03:00 米兰",
+    "input": {
+      "birth_date": "1847-02-11",
+      "birth_time": "03:00",
+      "birth_place": {
+        "city": "Milan",
+        "country": "US"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "丙午",
+      "month_pillar": "壬寅",
+      "day_pillar": "丁丑",
+      "hour_pillar": "壬寅",
+      "day_master": "丁",
+      "five_elements": {
+        "wood": 4.5,
+        "fire": 10.0,
+        "earth": 3.5,
+        "metal": 0.3,
+        "water": 7.1
+      }
+    },
+    "source": "cross_validated",
+    "notes": "美国出生，时区转换"
+  },
+  {
+    "id": "golden_016",
+    "description": "成吉思汗 — 1162-05-31 12:00 漠北",
+    "input": {
+      "birth_date": "1162-05-31",
+      "birth_time": "12:00",
+      "birth_place": {
+        "city": "漠北",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "壬午",
+      "month_pillar": "丙午",
+      "day_pillar": "甲申",
+      "hour_pillar": "庚午",
+      "day_master": "甲",
+      "five_elements": {
+        "wood": 3.0,
+        "fire": 7.0,
+        "earth": 1.0,
+        "metal": 3.0,
+        "water": 3.0
+      }
+    },
+    "source": "known_library_issue",
+    "notes": "宋代年份"
+  },
+  {
+    "id": "golden_017",
+    "description": "马克思 — 1818-05-05 02:00 特里尔",
+    "input": {
+      "birth_date": "1818-05-05",
+      "birth_time": "02:00",
+      "birth_place": {
+        "city": "Trier",
+        "country": "DE"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "戊寅",
+      "month_pillar": "丙辰",
+      "day_pillar": "戊辰",
+      "hour_pillar": "癸丑",
+      "day_master": "戊",
+      "five_elements": {
+        "wood": 2.6,
+        "fire": 2.9,
+        "earth": 10.0,
+        "metal": 0.2,
+        "water": 3.3
+      }
+    },
+    "source": "cross_validated",
+    "notes": "德国出生，时区转换"
+  },
+  {
+    "id": "golden_018",
+    "description": "刘备 — 161-06-12 10:00 涿郡",
+    "input": {
+      "birth_date": "0161-06-12",
+      "birth_time": "10:00",
+      "birth_place": {
+        "city": "涿郡",
+        "country": "CN"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "辛丑",
+      "month_pillar": "甲午",
+      "day_pillar": "己未",
+      "hour_pillar": "己巳",
+      "day_master": "己",
+      "five_elements": {
+        "wood": 2.9,
+        "fire": 4.2,
+        "earth": 10.0,
+        "metal": 3.2,
+        "water": 0.5
+      }
+    },
+    "source": "cross_validated",
+    "notes": "东汉年份"
+  },
+  {
+    "id": "golden_019",
+    "description": "莎士比亚 — 1564-04-26 14:00 斯特拉特福",
+    "input": {
+      "birth_date": "1564-04-26",
+      "birth_time": "14:00",
+      "birth_place": {
+        "city": "Stratford",
+        "country": "GB"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "甲子",
+      "month_pillar": "己巳",
+      "day_pillar": "戊午",
+      "hour_pillar": "己未",
+      "day_master": "戊",
+      "five_elements": {
+        "wood": 2.7,
+        "fire": 3.9,
+        "earth": 10.0,
+        "metal": 0.2,
+        "water": 1.7
+      }
+    },
+    "source": "cross_validated",
+    "notes": "英国出生，时区转换"
+  },
+  {
+    "id": "golden_020",
+    "description": "拿破仑 — 1769-08-15 07:00 阿雅克肖",
+    "input": {
+      "birth_date": "1769-08-15",
+      "birth_time": "07:00",
+      "birth_place": {
+        "city": "Ajaccio",
+        "country": "FR"
+      },
+      "gender": "male"
+    },
+    "expected": {
+      "year_pillar": "己丑",
+      "month_pillar": "壬申",
+      "day_pillar": "甲午",
+      "hour_pillar": "戊辰",
+      "day_master": "甲",
+      "five_elements": {
+        "wood": 3.2,
+        "fire": 1.9,
+        "earth": 10.0,
+        "metal": 2.2,
+        "water": 4.1
+      }
+    },
+    "source": "cross_validated",
+    "notes": "法国出生，时区转换"
+  }
+]

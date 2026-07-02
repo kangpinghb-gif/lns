@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LNS · 命理透视</title>
+  <link rel="stylesheet" href="/static/ui-shell.css?v=2">
+</head>
+<body class="ui-shell app-page app-page--analysis">
+  <header class="shell-header">
+    <div class="shell-header__inner">
+      <a class="brand" href="home.html">
+        <span class="brand__mark">
+          <img src="/static/assets/lns-logo-icon.svg" alt="LNS logo">
+        </span>
+        <img class="brand__wordmark" src="/static/assets/lns-logo-wordmark.svg" alt="LNS Life Navigation System">
+      </a>
+      <nav class="primary-nav">
+        <a class="primary-nav__link" data-nav href="home.html">首页</a>
+        <a class="primary-nav__link" data-nav href="create.html">生成入口</a>
+        <a class="primary-nav__link" data-nav href="kline.html">人生K线</a>
+        <a class="primary-nav__link" data-nav href="analysis.html">命理透视</a>
+        <a class="primary-nav__link" data-nav href="year-detail.html">流年详情</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap phone-frame">
+    <!-- 锚点条 -->
+    <section class="app-strip" data-analysis-anchor>命盘结构 · 五行能量 · 行为倾向 <span>›</span></section>
+
+    <!-- 返回导航 -->
+    <section class="app-page-head app-page-head--compact">
+      <div class="top-back-row">
+        <a class="icon-btn" href="kline.html" aria-label="返回人生 K 线">
+          <svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7"/><path d="M9 12h11"/></svg>
+        </a>
+        <div class="top-back-row__title">命理透视</div>
+        <span class="top-back-row__spacer"></span>
+      </div>
+    </section>
+
+    <!-- 页面介绍卡（降格：不做大标题，仅作锚点条延伸） -->
+    <section class="app-card explain-card explain-card--intro">
+      <div class="card-head">
+        <div class="card-kicker">结构来源</div>
+        <a class="panel-nav__link" href="kline.html">K线总览</a>
+      </div>
+      <p class="explain-intro" data-analysis-summary>这一页解释当前趋势从哪里来，先看命盘结构，再看五行强弱和行为倾向。</p>
+    </section>
+
+    <!-- 命局结构 -->
+    <section class="app-card explain-card">
+      <div class="card-kicker">命局结构</div>
+      <p class="section-subtitle" data-analysis-structure-summary>日主、四柱与十神结构会共同影响当前阶段的表达方式。</p>
+      <div class="tag-list" data-four-pillars>
+        <span class="tag">年柱 待识别</span>
+        <span class="tag">月柱 待识别</span>
+        <span class="tag">日柱 待识别</span>
+        <span class="tag">时柱 待识别</span>
+      </div>
+      <ul class="list" data-structure-points>
+        <li>正在读取命局结构。</li>
+      </ul>
+    </section>
+
+    <!-- 五行能量（进度条可视化） -->
+    <section class="app-card explain-card">
+      <div class="card-kicker">五行能量</div>
+      <p class="section-subtitle" data-elements-summary>用于观察当前结构中的偏旺、偏弱和需要平衡的部分。</p>
+      <div class="element-bars" data-element-bars>
+        <!-- 木 -->
+        <div class="element-bar" data-element="wood">
+          <span class="element-bar__label">木</span>
+          <div class="element-bar__track">
+            <div class="element-bar__fill element-bar__fill--wood" style="width:0%"></div>
+          </div>
+          <span class="element-bar__value" data-element-score="wood">-</span>
+          <span class="element-bar__tag" data-element-tag="wood">—</span>
+        </div>
+        <!-- 火 -->
+        <div class="element-bar" data-element="fire">
+          <span class="element-bar__label">火</span>
+          <div class="element-bar__track">
+            <div class="element-bar__fill element-bar__fill--fire" style="width:0%"></div>
+          </div>
+          <span class="element-bar__value" data-element-score="fire">-</span>
+          <span class="element-bar__tag" data-element-tag="fire">—</span>
+        </div>
+        <!-- 土 -->
+        <div class="element-bar" data-element="earth">
+          <span class="element-bar__label">土</span>
+          <div class="element-bar__track">
+            <div class="element-bar__fill element-bar__fill--earth" style="width:0%"></div>
+          </div>
+          <span class="element-bar__value" data-element-score="earth">-</span>
+          <span class="element-bar__tag" data-element-tag="earth">—</span>
+        </div>
+        <!-- 金 -->
+        <div class="element-bar" data-element="metal">
+          <span class="element-bar__label">金</span>
+          <div class="element-bar__track">
+            <div class="element-bar__fill element-bar__fill--metal" style="width:0%"></div>
+          </div>
+          <span class="element-bar__value" data-element-score="metal">-</span>
+          <span class="element-bar__tag" data-element-tag="metal">—</span>
+        </div>
+        <!-- 水 -->
+        <div class="element-bar" data-element="water">
+          <span class="element-bar__label">水</span>
+          <div class="element-bar__track">
+            <div class="element-bar__fill element-bar__fill--water" style="width:0%"></div>
+          </div>
+          <span class="element-bar__value" data-element-score="water">-</span>
+          <span class="element-bar__tag" data-element-tag="water">—</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 性格与倾向（按类型分组） -->
+    <section class="app-card explain-card">
+      <div class="card-kicker">性格与倾向</div>
+      <div class="behavior-groups" data-behavior-groups>
+        <div class="behavior-group">
+          <h3 class="behavior-group__title">能力侧重点</h3>
+          <ul class="list" data-behavior-ability>
+            <li>正在读取能力分析。</li>
+          </ul>
+        </div>
+        <div class="behavior-group">
+          <h3 class="behavior-group__title">行为倾向</h3>
+          <ul class="list" data-behavior-tendency>
+            <li>正在读取行为倾向分析。</li>
+          </ul>
+        </div>
+        <div class="behavior-group">
+          <h3 class="behavior-group__title">综合判断</h3>
+          <ul class="list" data-behavior-judgment>
+            <li>正在读取综合判断。</li>
+          </ul>
+        </div>
+      </div>
+      <!-- 兼容旧版 data-behavior-points，便于后端渐进迁移 -->
+      <ul class="list" data-behavior-points style="display:none">
+        <li>正在读取性格与倾向分析。</li>
+      </ul>
+    </section>
+
+    <!-- 当前命理解读 -->
+    <section class="app-card explain-card">
+      <div class="card-kicker">当前命理解读</div>
+      <ul class="list" data-analysis-points>
+        <li>正在读取当前命理解读。</li>
+      </ul>
+    </section>
+
+    <!-- 深度透视入口（替换开发注释，改为用户导向文案） -->
+    <section class="app-card upgrade-card" data-upgrade-slot="analysis-deep">
+      <div class="upgrade-card__eyebrow">深度分析</div>
+      <h2 class="upgrade-card__title">完整十神结构与行为模式</h2>
+      <p class="upgrade-card__copy">了解十神落位如何影响你的人际、决策和周期节奏，帮你更清晰地看到自己的行动模式。</p>
+      <div class="upgrade-card__status" data-upgrade-status="analysis-deep">暂免费开放</div>
+    </section>
+
+    <!-- 流年详情跳转 -->
+    <section class="app-card cta-card">
+      <a class="cta-card__link" href="year-detail.html">
+        <span>
+          <strong>查看流年详情</strong>
+          <small>进入当前年份的行动拆解</small>
+        </span>
+        <span class="cta-arrow">→</span>
+      </a>
+    </section>
+
+    <!-- 底部导航 -->
+    <nav class="app-bottom-nav" aria-label="主导航">
+      <a class="app-bottom-nav__item" data-nav href="home.html">
+        <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 10v10h14V10"/></svg>
+        <span>首页</span>
+      </a>
+      <a class="app-bottom-nav__item" data-nav href="kline.html">
+        <svg viewBox="0 0 24 24"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M7 15l4-4 3 3 6-8"/></svg>
+        <span>K线</span>
+      </a>
+      <a class="app-bottom-nav__item is-active" data-nav href="analysis.html">
+        <!-- 眼睛图标，替代原来的时钟 -->
+        <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span>透视</span>
+      </a>
+      <a class="app-bottom-nav__item" data-nav href="year-detail.html">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M7 3v6"/><path d="M17 3v6"/><path d="M5 10h14v11H5z"/></svg>
+        <span>流年</span>
+      </a>
+      <a class="app-bottom-nav__item" data-nav href="create.html">
+        <svg viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+        <span>生成</span>
+      </a>
+    </nav>
+  </main>
+
+  <script src="/static/ui-shell.js?v=2"></script>
+</body>
+</html>

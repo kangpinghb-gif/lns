@@ -1,0 +1,203 @@
+[
+  {
+    "id": "ss_001",
+    "name": "天乙贵人",
+    "type": "吉神",
+    "condition": "日干见地支丑未/子申/亥酉/卯巳/午寅",
+    "positive_score": 8,
+    "negative_score": 0,
+    "effect": {
+      "career": [
+        "关键时刻易获得他人助力",
+        "建议主动建立关系网络"
+      ]
+    },
+    "risk": [],
+    "action": "主动建立关系网络",
+    "priority": 5
+  },
+  {
+    "id": "ss_002",
+    "name": "驿马",
+    "type": "动神",
+    "condition": "年支对冲",
+    "positive_score": 5,
+    "negative_score": 2,
+    "effect": {
+      "career": [
+        "适合变动、出行、转换的时间窗口",
+        "可考虑异地发展"
+      ]
+    },
+    "risk": [
+      "奔波劳碌",
+      "不稳定"
+    ],
+    "action": "把握变动窗口，考虑新的方向",
+    "priority": 4
+  },
+  {
+    "id": "ss_003",
+    "name": "桃花",
+    "type": "吉神",
+    "condition": "年支见子午卯酉",
+    "positive_score": 5,
+    "negative_score": 1,
+    "effect": {
+      "relationship": [
+        "社交与关系类机会窗口开启",
+        "适合拓展人际圈"
+      ]
+    },
+    "risk": [
+      "情感边界模糊"
+    ],
+    "action": "适合拓展社交，注意情感边界",
+    "priority": 4
+  },
+  {
+    "id": "ss_004",
+    "name": "文昌",
+    "type": "吉神",
+    "condition": "日干见地支巳午申酉亥子寅卯",
+    "positive_score": 7,
+    "negative_score": 0,
+    "effect": {
+      "learning": [
+        "适合考试、写作、输出的时段",
+        "学习效率处于高位"
+      ]
+    },
+    "risk": [],
+    "action": "集中精力学习或创作",
+    "priority": 5
+  },
+  {
+    "id": "ss_005",
+    "name": "羊刃",
+    "type": "凶神",
+    "condition": "阳日干见帝旺地支",
+    "positive_score": 3,
+    "negative_score": 6,
+    "effect": {
+      "career": [
+        "行动力强但需注意冲动风险"
+      ]
+    },
+    "risk": [
+      "冲动决策",
+      "人际冲突"
+    ],
+    "action": "重大决策建议延迟24小时",
+    "priority": 5
+  },
+  {
+    "id": "ss_006",
+    "name": "华盖",
+    "type": "中性",
+    "condition": "年支/日支见特定地支",
+    "positive_score": 4,
+    "negative_score": 3,
+    "effect": {
+      "career": [
+        "适合专注独立工作"
+      ]
+    },
+    "risk": [
+      "社交效率偏低",
+      "孤立倾向"
+    ],
+    "action": "适合独立工作，减少无效社交",
+    "priority": 3
+  },
+  {
+    "id": "ss_007",
+    "name": "空亡",
+    "type": "凶神",
+    "condition": "旬空",
+    "positive_score": 1,
+    "negative_score": 4,
+    "effect": {
+      "wealth": [
+        "避免重大资源投入决策"
+      ]
+    },
+    "risk": [
+      "资源空缺",
+      "计划受阻"
+    ],
+    "action": "适合休整而非扩张，避免重大投入",
+    "priority": 4
+  },
+  {
+    "id": "ss_008",
+    "name": "将星",
+    "type": "吉神",
+    "condition": "年支/日支见特定地支",
+    "positive_score": 6,
+    "negative_score": 0,
+    "effect": {
+      "career": [
+        "适合承担主导角色",
+        "可主动争取决策权"
+      ]
+    },
+    "risk": [],
+    "action": "主动争取领导机会",
+    "priority": 4
+  },
+  {
+    "id": "ss_009",
+    "name": "劫煞",
+    "type": "凶神",
+    "condition": "年支起",
+    "positive_score": 1,
+    "negative_score": 5,
+    "effect": {
+      "career": [
+        "当前外部竞争加剧"
+      ]
+    },
+    "risk": [
+      "突发竞争",
+      "资源争夺"
+    ],
+    "action": "注意竞争态势，降低风险敞口",
+    "priority": 3
+  },
+  {
+    "id": "ss_010",
+    "name": "灾煞",
+    "type": "凶神",
+    "condition": "年支起",
+    "positive_score": 1,
+    "negative_score": 5,
+    "effect": {
+      "risk": [
+        "不可控因素增加"
+      ]
+    },
+    "risk": [
+      "意外压力",
+      "计划外变化"
+    ],
+    "action": "重要事项准备备用方案",
+    "priority": 3
+  },
+  {
+    "id": "ss_011",
+    "name": "禄神",
+    "type": "吉神",
+    "condition": "日干见临官地支",
+    "positive_score": 6,
+    "negative_score": 0,
+    "effect": {
+      "wealth": [
+        "资源积累的稳定阶段"
+      ]
+    },
+    "risk": [],
+    "action": "适合巩固已有资源，不宜冒进扩张",
+    "priority": 4
+  }
+]

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <base href="/lns/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LNS · 人生K线</title>
+  <link rel="stylesheet" href="static/ui-shell.css">
+</head>
+<body class="ui-shell">
+  <header class="shell-header">
+    <div class="shell-header__inner">
+      <a class="brand" href="home.html">
+        <span class="brand__mark">
+          <img src="static/assets/lns-logo-icon.png" alt="LNS logo">
+        </span>
+        <img class="brand__wordmark" src="static/assets/lns-logo-wordmark.png" alt="LNS Life Navigation System">
+      </a>
+      <nav class="primary-nav">
+        <a class="primary-nav__link" data-nav href="home.html">首页</a>
+        <a class="primary-nav__link" data-nav href="create.html">生成入口</a>
+        <a class="primary-nav__link" data-nav href="kline.html">人生K线</a>
+        <a class="primary-nav__link" data-nav href="analysis.html">命理透视</a>
+        <a class="primary-nav__link" data-nav href="year-detail.html">流年详情</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <section class="panel">
+      <div class="section-head">
+        <div>
+          <h1 class="page-title" data-report-title>人生 K 线总览</h1>
+          <p class="page-copy">
+            用户：<strong data-profile-field="name">未填写</strong>，
+            性别：<span data-profile-field="gender">未填写</span>，
+            出生地：<span data-profile-field="city">未填写</span>。
+            这一页负责第一眼结果感。
+          </p>
+          <p class="section-subtitle" data-report-summary>页面会优先使用真实报告数据渲染趋势图。</p>
+        </div>
+
+        <nav class="panel-nav">
+          <a class="panel-nav__link" data-report-nav href="kline.html">K线总览</a>
+          <a class="panel-nav__link" data-report-nav href="analysis.html">命理透视</a>
+          <a class="panel-nav__link" data-report-nav href="year-detail.html">流年详情</a>
+        </nav>
+      </div>
+
+      <div class="split-panel">
+        <div class="panel">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">趋势图区域</h2>
+              <p class="section-subtitle" data-kline-loading>正在准备真实趋势图数据。</p>
+            </div>
+            <span class="status-pill status-pill--steady">当前 36 岁</span>
+          </div>
+
+          <div class="chart-frame">
+            <div class="trend-chart" data-kline-chart></div>
+          </div>
+        </div>
+
+        <div class="stack">
+          <article class="panel">
+            <div class="metric-card__label">当前阶段</div>
+            <div class="metric-card__value" data-current-stage>稳步上升</div>
+            <p class="metric-card__note" data-current-stage-note>当前以积累和结构调整为主，适合打基础，避免过度扩张。</p>
+          </article>
+
+          <article class="panel">
+            <div class="metric-card__label">能量值</div>
+            <div class="metric-card__value" data-current-energy>74</div>
+            <p class="metric-card__note">当前能量值可作为后端总评分字段挂载点。</p>
+          </article>
+
+          <article class="panel">
+            <div class="metric-card__label">风险值</div>
+            <div class="metric-card__value" data-current-risk>33</div>
+            <p class="metric-card__note">风险值建议独立成字段，不要和能量值混成一句文案。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section grid-3">
+      <article class="panel">
+        <div class="card-kicker">命局摘要</div>
+        <div class="metric-card__value">丙火日主</div>
+        <p class="metric-card__note">核心气质偏外放，执行意愿强，但需要结构约束。</p>
+      </article>
+
+      <article class="panel">
+        <div class="card-kicker">当前大运</div>
+        <div class="metric-card__value" data-current-cycle>癸酉</div>
+        <p class="metric-card__note" data-current-cycle-note>当前十年偏水运，适合稳中求进。</p>
+      </article>
+
+      <article class="panel">
+        <div class="card-kicker">推荐动作</div>
+        <div class="metric-card__note" data-current-action>先看命理透视，理解当前趋势来源。</div>
+      </article>
+    </section>
+  </main>
+
+  <script src="static/ui-shell.js"></script>
+</body>
+</html>

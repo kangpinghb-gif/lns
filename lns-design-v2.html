@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LNS · 人生导航系统</title>
+<!-- Google Fonts: Noto Serif SC (衬线标题) + Inter (正文) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   LNS Design v2 — 原研哉白盒哲学 × Pentagram 数据叙事
+   玉白 #F5F0EB / 墨黑 #1A1A1A / 朱砂红 #C23B22 / 青金石蓝 #2E5090
+   ============================================================ */
+
+/* --- Reset & Base --- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #F5F0EB;
+  color: #1A1A1A;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* --- Subtle grain texture overlay (refined) --- */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- Layout Container --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   Typography — 衬线标题体现东方韵味，无衬线正文清晰现代
+   ============================================================ */
+h1, h2, h3, .serif-heading {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'STSong', serif;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+}
+
+/* ============================================================
+   HEADER — 极简导航，品牌名如落款印章
+   ============================================================ */
+header {
+  padding: 48px 0 40px;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: #1A1A1A;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.brand em {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  color: #1A1A1A;
+  opacity: 1;
+}
+
+/* --- 朱砂红小点 —— 印章式的存在 --- */
+.brand-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #C23B22;
+  margin-left: 4px;
+  vertical-align: middle;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+nav a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: #1A1A1A;
+  opacity: 0.5;
+  text-decoration: none;
+  margin-left: 36px;
+  transition: opacity 0.3s ease;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #C23B22;
+  transition: width 0.4s ease;
+}
+
+nav a:hover {
+  opacity: 0.9;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ============================================================
+   HERO SECTION — 极致留白，标题浮在纸上
+   ============================================================ */
+.hero {
+  padding: 140px 0 120px;
+  text-align: center;
+  position: relative;
+}
+
+/* --- 青金石蓝的极细装饰线，如书法中的"气" --- */
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(46, 80, 144, 0.3), transparent);
+}
+
+.hero::before {
+  top: 40px;
+  width: 60px;
+}
+
+.hero::after {
+  bottom: 40px;
+  width: 60px;
+}
+
+/* --- 小副标记 "间 / Ma" --- */
+.hero-kigo {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: #2E5090;
+  opacity: 0.4;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  color: #1A1A1A;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+/* --- 副标题：更轻，更有呼吸感 --- */
+.hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: #1A1A1A;
+  opacity: 0.5;
+  max-width: 440px;
+  margin: 0 auto 80px;
+  line-height: 1.9;
+}
+
+/* --- CTA Buttons --- */
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+.btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  padding: 14px 40px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.btn-primary {
+  background-color: transparent;
+  color: #1A1A1A;
+  border: 1px solid #1A1A1A;
+}
+
+.btn-primary:hover {
+  background-color: #1A1A1A;
+  color: #F5F0EB;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #1A1A1A;
+  border: 1px solid rgba(26, 26, 26, 0.2);
+}
+
+.btn-secondary:hover {
+  border-color: #1A1A1A;
+}
+
+/* ============================================================
+   SVG 数据图 —— 极细描边线条，如书法笔迹
+   趋势线用青金石蓝，极窄区域填充
+   ============================================================ */
+.data-viz {
+  max-width: 800px;
+  margin: 0 auto 100px;
+  padding: 0 0 20px;
+  position: relative;
+}
+
+.data-viz-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #1A1A1A;
+  opacity: 0.3;
+  text-align: center;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+}
+
+.data-viz svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ============================================================
+   STEPS SECTION — 4步骤导航卡片
+   极简卡片，大量留白，内容像"浮"在纸上
+   ============================================================ */
+.steps {
+  padding: 80px 0 120px;
+}
+
+.steps-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.steps-header h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: #1A1A1A;
+  margin-bottom: 16px;
+}
+
+.steps-header .steps-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: #1A1A1A;
+  opacity: 0.35;
+  text-transform: uppercase;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.step-card {
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* --- 卡片间用极细分割线 --- */
+.step-card + .step-card::before {
+  content: '';
+  position: absolute;
+  left: -13px;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background-color: rgba(26, 26, 26, 0.06);
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+}
+
+.step-number {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #2E5090;
+  opacity: 0.6;
+  margin-bottom: 24px;
+  position: relative;
+  display: inline-block;
+}
+
+/* --- 朱砂红小横线装饰 --- */
+.step-number::after {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 1px;
+  background-color: #C23B22;
+  margin: 10px auto 0;
+  transition: width 0.4s ease;
+}
+
+.step-card:hover .step-number::after {
+  width: 28px;
+}
+
+/* --- SVG icon container for step --- */
+.step-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 20px;
+}
+
+.step-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: #1A1A1A;
+  stroke-width: 0.8;
+  fill: none;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.step-card:hover .step-icon svg {
+  opacity: 0.8;
+}
+
+.step-card h3 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #1A1A1A;
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: #1A1A1A;
+  opacity: 0.45;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   QUOTE / 哲学引用 — 白盒哲学的体现
+   ============================================================ */
+.philosophy {
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+}
+
+.philosophy blockquote {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: #1A1A1A;
+  opacity: 0.55;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 2;
+  font-style: normal;
+}
+
+.philosophy blockquote::before {
+  content: '— ';
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: #2E5090;
+  opacity: 0.4;
+  display: block;
+  margin-bottom: 24px;
+}
+
+.philosophy .attr {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: #1A1A1A;
+  opacity: 0.25;
+  margin-top: 16px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  padding: 48px 0 60px;
+  border-top: 1px solid rgba(26, 26, 26, 0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  color: #1A1A1A;
+  opacity: 0.3;
+  letter-spacing: 0.06em;
+}
+
+footer .footer-links a {
+  color: #1A1A1A;
+  text-decoration: none;
+  margin-left: 28px;
+  transition: opacity 0.3s ease;
+}
+
+footer .footer-links a:hover {
+  opacity: 0.7;
+}
+
+/* ============================================================
+   DECORATIVE ELEMENTS — 极简的东方式装饰
+   ============================================================ */
+/* --- 一个朱砂红色的小方印在角落 --- */
+.chop-seal {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(194, 59, 34, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #C23B22;
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.02em;
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+  z-index: 10;
+  user-select: none;
+}
+
+.chop-seal:hover {
+  opacity: 0.7;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 1024px) {
+  .container { padding: 0 40px; }
+  .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .step-card + .step-card::before { display: none; }
+  .hero h1 { font-size: 2.8rem; letter-spacing: 0.18em; }
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 24px; }
+  header { flex-direction: column; gap: 16px; align-items: flex-start; }
+  nav a { margin-left: 0; margin-right: 24px; }
+  .hero { padding: 80px 0 60px; }
+  .hero h1 { font-size: 2rem; letter-spacing: 0.12em; }
+  .hero-sub { font-size: 0.85rem; }
+  .hero-actions { flex-direction: column; align-items: center; gap: 16px; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .steps { padding: 40px 0 60px; }
+  footer { flex-direction: column; gap: 12px; text-align: center; }
+  footer .footer-links a { margin: 0 12px; }
+  .chop-seal { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+ 朱砂红角印
+ ============================================================ -->
+<div class="chop-seal" title="白 · 空寂">白</div>
+
+<div class="container">
+
+  <!-- ==========================================================
+     HEADER
+     ========================================================== -->
+  <header>
+    <div class="brand">
+      <em>LNS</em> <span class="brand-dot"></span>
+      <span style="margin-left:8px;">人生导航系统</span>
+    </div>
+    <nav>
+      <a href="#">首页</a>
+      <a href="#">命理</a>
+      <a href="#">趋势</a>
+      <a href="#">关于</a>
+    </nav>
+  </header>
+
+  <!-- ==========================================================
+     HERO
+     ========================================================== -->
+  <section class="hero">
+    <div class="hero-kigo">間 / Ma · 空寂之境</div>
+
+    <h1>看清当下<br>把握未来</h1>
+
+    <p class="hero-sub">
+      基于时间与结构模型的人生决策导航系统
+    </p>
+
+    <div class="hero-actions">
+      <a href="#" class="btn btn-primary">开始生成报告</a>
+      <a href="#" class="btn btn-secondary">查看趋势总览</a>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+     DATA VISUALIZATION — 趋势图，极细SVG线条
+     ========================================================== -->
+  <div class="data-viz">
+    <p class="data-viz-label">人生趋势总览 · 流年示意</p>
+    <svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg">
+      <!-- Grid lines — 极浅灰 -->
+      <line x1="40" y1="50" x2="680" y2="50" stroke="#1A1A1A" stroke-width="0.3" opacity="0.08" />
+      <line x1="40" y1="110" x2="680" y2="110" stroke="#1A1A1A" stroke-width="0.3" opacity="0.08" />
+      <line x1="40" y1="170" x2="680" y2="170" stroke="#1A1A1A" stroke-width="0.3" opacity="0.08" />
+
+      <!-- 趋势主线条 — 青金石蓝，极细，书法质感 -->
+      <path d="M 40,170 C 100,170 120,130 160,130 C 200,130 220,85 270,85 C 320,85 340,50 390,50 C 440,50 460,75 500,75 C 540,75 560,100 610,100 C 660,100 670,120 680,120"
+            stroke="#2E5090" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+
+      <!-- 区域填充 — 极浅青金石蓝梯度 -->
+      <defs>
+        <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#2E5090" stop-opacity="0.06" />
+          <stop offset="100%" stop-color="#2E5090" stop-opacity="0.01" />
+        </linearGradient>
+      </defs>
+      <path d="M 40,170 C 100,170 120,130 160,130 C 200,130 220,85 270,85 C 320,85 340,50 390,50 C 440,50 460,75 500,75 C 540,75 560,100 610,100 C 660,100 670,120 680,120 L 680,220 L 40,220 Z"
+            fill="url(#areaGrad)" />
+
+      <!-- Data dots — only at key inflection points -->
+      <circle cx="40" cy="170" r="2.5" fill="#2E5090" opacity="0.4" />
+      <circle cx="160" cy="130" r="2.5" fill="#2E5090" opacity="0.4" />
+      <circle cx="270" cy="85" r="3" fill="#2E5090" opacity="0.5" />
+      <circle cx="390" cy="50" r="3" fill="#2E5090" opacity="0.6" />
+      <circle cx="500" cy="75" r="2.5" fill="#2E5090" opacity="0.4" />
+      <circle cx="610" cy="100" r="2.5" fill="#2E5090" opacity="0.4" />
+      <circle cx="680" cy="120" r="2.5" fill="#2E5090" opacity="0.4" />
+
+      <!-- 朱砂红小标记 — 当前节点 -->
+      <circle cx="390" cy="50" r="5" fill="none" stroke="#C23B22" stroke-width="0.6" opacity="0.6" />
+      <circle cx="390" cy="50" r="2" fill="#C23B22" opacity="0.4" />
+
+      <!-- X轴标签 -->
+      <text x="40" y="200" font-family="Inter, sans-serif" font-size="0.55rem" fill="#1A1A1A" opacity="0.2">2018</text>
+      <text x="160" y="200" font-family="Inter, sans-serif" font-size="0.55rem" fill="#1A1A1A" opacity="0.2">2020</text>
+      <text x="270" y="200" font-family="Inter, sans-serif" font-size="0.55rem" fill="#1A1A1A" opacity="0.2">2022</text>
+      <text x="390" y="200" font-family="Inter, sans-serif" font-size="0.55rem" fill="#1A1A1A" opacity="0.2">2024</text>
+      <text x="500" y="200" font-family="Inter, sans-serif" font-size="0.55rem" fill="#1A1A1A" opacity="0.2">2026</text>
+      <text x="610" y="200" font-family="Inter, sans-serif" font-size="0.55rem" fill="#1A1A1A" opacity="0.2">2028</text>
+      <text x="670" y="200" font-family="Inter, sans-serif" font-size="0.55rem" fill="#1A1A1A" opacity="0.2">2030</text>
+    </svg>
+  </div>
+
+  <!-- ==========================================================
+     STEPS — 4步骤
+     ========================================================== -->
+  <section class="steps">
+    <div class="steps-header">
+      <h2>导航路径</h2>
+      <p class="steps-sub">Four Movements · 四步之程</p>
+    </div>
+
+    <div class="steps-grid">
+
+      <!-- Step 1 -->
+      <div class="step-card">
+        <div class="step-number">Step · 01</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9" stroke-width="0.8" />
+            <path d="M12 8v4l3 3" stroke-width="0.8" />
+          </svg>
+        </div>
+        <h3>输入出生信息</h3>
+        <p>时辰之地，命之始也</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-card">
+        <div class="step-number">Step · 02</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="3,18 9,10 14,13 21,5" stroke-width="0.8" />
+            <polyline points="21,12 21,5 14,5" stroke-width="0.8" />
+          </svg>
+        </div>
+        <h3>总览人生K线</h3>
+        <p>趋势之线，起伏之间</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step-card">
+        <div class="step-number">Step · 03</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke-width="0.8" />
+            <path d="M2 17l10 5 10-5" stroke-width="0.8" />
+            <path d="M2 12l10 5 10-5" stroke-width="0.8" />
+          </svg>
+        </div>
+        <h3>命理透视</h3>
+        <p>深层之析，命理之镜</p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="step-card">
+        <div class="step-number">Step · 04</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9" stroke-width="0.8" />
+            <path d="M12 6v6l4 2" stroke-width="0.8" />
+          </svg>
+        </div>
+        <h3>流年详情</h3>
+        <p>岁月之河，流向可测</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================
+     PHILOSOPHY — 白盒哲学引用
+     ========================================================== -->
+  <section class="philosophy">
+    <blockquote>
+      空寂不是没有，<br>而是充满可能性的空间
+    </blockquote>
+    <p class="attr">— 原研哉 · 白</p>
+  </section>
+
+  <!-- ==========================================================
+     FOOTER
+     ========================================================== -->
+  <footer>
+    <div>© 2025 LNS · 人生导航系统</div>
+    <div class="footer-links">
+      <a href="#">隐私</a>
+      <a href="#">条款</a>
+      <a href="#">联系</a>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

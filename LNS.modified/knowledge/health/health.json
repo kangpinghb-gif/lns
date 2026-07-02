@@ -1,0 +1,52 @@
+[
+  {
+    "element": "wood",
+    "organ": [
+      "肝",
+      "胆"
+    ],
+    "tendency": "肝气郁结",
+    "behavior_cause": "长期压抑、目标受阻",
+    "advice": "适度运动，保持情绪通畅"
+  },
+  {
+    "element": "fire",
+    "organ": [
+      "心",
+      "小肠"
+    ],
+    "tendency": "心火旺",
+    "behavior_cause": "情绪波动大、压力大",
+    "advice": "注意休息，减少刺激性饮食"
+  },
+  {
+    "element": "earth",
+    "organ": [
+      "脾",
+      "胃"
+    ],
+    "tendency": "脾胃虚弱",
+    "behavior_cause": "思虑过多、饮食不规律",
+    "advice": "规律饮食，减少过度思考"
+  },
+  {
+    "element": "metal",
+    "organ": [
+      "肺",
+      "大肠"
+    ],
+    "tendency": "肺气不足",
+    "behavior_cause": "过度理性、情绪压抑",
+    "advice": "增加户外活动，学习释放"
+  },
+  {
+    "element": "water",
+    "organ": [
+      "肾",
+      "膀胱"
+    ],
+    "tendency": "肾气不足",
+    "behavior_cause": "过度消耗、休息不足",
+    "advice": "保证充足睡眠，适度节制"
+  }
+]

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LNS · 首页</title>
+  <link rel="stylesheet" href="/static/ui-shell.css?v=2">
+</head>
+<body class="ui-shell app-page app-page--home">
+  <header class="shell-header">
+    <div class="shell-header__inner">
+      <a class="brand" href="home.html">
+        <span class="brand__mark">
+          <img src="/static/assets/lns-logo-icon.svg" alt="LNS logo">
+        </span>
+        <img class="brand__wordmark" src="/static/assets/lns-logo-wordmark.svg" alt="LNS Life Navigation System">
+      </a>
+      <nav class="primary-nav">
+        <a class="primary-nav__link" data-nav href="home.html">首页</a>
+        <a class="primary-nav__link" data-nav href="create.html">生成入口</a>
+        <a class="primary-nav__link" data-nav href="kline.html">人生K线</a>
+        <a class="primary-nav__link" data-nav href="analysis.html">命理透视</a>
+        <a class="primary-nav__link" data-nav href="year-detail.html">流年详情</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap phone-frame">
+    <!-- 命盘锚点 -->
+    <section class="app-strip" data-home-anchor>日主丁火 · 伤官格 · 庚午大运 <span>›</span></section>
+
+    <!-- 用户欢迎区 -->
+    <section class="app-page-head">
+      <div class="app-title-row">
+        <div class="app-wordmark">LNS</div>
+        <button class="icon-btn" type="button" aria-label="通知">
+          <svg viewBox="0 0 24 24"><path d="M15 17H9"/><path d="M10 19a2 2 0 0 0 4 0"/><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/></svg>
+        </button>
+      </div>
+      <p class="app-greeting" data-greeting>早安,</p>
+      <h1 class="app-name" data-home-name>李明</h1>
+      <p class="app-subline" data-home-stage>今天是壬子日 · 处于结构建立期</p>
+    </section>
+
+    <!-- 今日能量卡 -->
+    <section class="app-card app-card--energy">
+      <div class="card-head">
+        <div class="card-kicker">今日能量</div>
+        <span class="status-pill status-pill--warning" data-home-window>行动窗口开启</span>
+      </div>
+      <div class="energy-row">
+        <div class="energy-value"><span data-home-energy>74</span><small>/100</small></div>
+      </div>
+      <div class="energy-meter"><span data-home-energy-bar></span></div>
+      <div class="card-foot">
+        <span class="dot dot--blue"></span>
+        <span class="stage-label">当前阶段</span>
+        <strong data-home-current-stage>结构建立期</strong>
+        <span class="stage-range" data-home-current-stage-range>26–35岁</span>
+      </div>
+    </section>
+
+    <!-- P0 行动卡（带完成交互） -->
+    <section class="app-card app-card--action" data-action-card>
+      <div class="action-card__row">
+        <label class="action-checkbox" data-action-done>
+          <input type="checkbox" aria-label="标记完成">
+          <span class="action-checkbox__box"></span>
+        </label>
+        <div class="action-card__body">
+          <div class="status-chip">P0 · 立即执行</div>
+          <h2 class="action-title" data-home-action>完善简历，针对创新类岗位定向投递</h2>
+          <div class="action-foot">
+            <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-home-action-time>本月内完成</span></span>
+            <a class="text-link" data-home-why href="analysis.html">为什么 <span>⌄</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 双迷你卡：趋势 + 风险 -->
+    <section class="app-grid app-grid--2">
+      <article class="app-card app-card--mini">
+        <div class="mini-label">本月趋势</div>
+        <div class="mini-value is-green" data-home-trend>上升</div>
+        <div class="mini-note" data-home-trend-note>当前大运：成长扩展期</div>
+      </article>
+
+      <article class="app-card app-card--mini">
+        <div class="mini-label">风险等级</div>
+        <div class="mini-value is-orange" data-home-risk>33%</div>
+        <div class="risk-level" data-home-risk-level>中等风险</div>
+        <div class="mini-note" data-home-risk-note>需关注财务</div>
+      </article>
+    </section>
+
+    <!-- 底部导航 -->
+    <nav class="app-bottom-nav" aria-label="主导航">
+      <a class="app-bottom-nav__item is-active" data-nav href="home.html">
+        <svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 10v10h14V10"/></svg>
+        <span>首页</span>
+      </a>
+      <a class="app-bottom-nav__item" data-nav href="kline.html">
+        <svg viewBox="0 0 24 24"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M7 15l4-4 3 3 6-8"/></svg>
+        <span>K线</span>
+      </a>
+      <a class="app-bottom-nav__item" data-nav href="analysis.html">
+        <!-- 眼睛图标，替代时钟 -->
+        <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span>透视</span>
+      </a>
+      <a class="app-bottom-nav__item" data-nav href="year-detail.html">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M7 3v6"/><path d="M17 3v6"/><path d="M5 10h14v11H5z"/></svg>
+        <span>流年</span>
+      </a>
+      <a class="app-bottom-nav__item" data-nav href="create.html">
+        <svg viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+        <span>生成</span>
+      </a>
+    </nav>
+  </main>
+
+  <script src="/static/ui-shell.js?v=2"></script>
+  <script>
+  (function() {
+    var el = document.querySelector('[data-greeting]');
+    if (!el) return;
+    var h = new Date().getHours();
+    var t;
+    if (h >= 5 && h < 12) t = '早安';
+    else if (h >= 12 && h < 18) t = '午安';
+    else t = '晚安';
+    el.textContent = t + ',';
+  })();
+  </script>
+</body>
+</html>

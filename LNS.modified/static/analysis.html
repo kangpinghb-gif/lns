@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <base href="/lns/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LNS · 命理透视</title>
+  <link rel="stylesheet" href="static/ui-shell.css">
+</head>
+<body class="ui-shell">
+  <header class="shell-header">
+    <div class="shell-header__inner">
+      <a class="brand" href="home.html">
+        <span class="brand__mark">
+          <img src="static/assets/lns-logo-icon.png" alt="LNS logo">
+        </span>
+        <img class="brand__wordmark" src="static/assets/lns-logo-wordmark.png" alt="LNS Life Navigation System">
+      </a>
+      <nav class="primary-nav">
+        <a class="primary-nav__link" data-nav href="home.html">首页</a>
+        <a class="primary-nav__link" data-nav href="create.html">生成入口</a>
+        <a class="primary-nav__link" data-nav href="kline.html">人生K线</a>
+        <a class="primary-nav__link" data-nav href="analysis.html">命理透视</a>
+        <a class="primary-nav__link" data-nav href="year-detail.html">流年详情</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <section class="panel">
+      <div class="section-head">
+        <div>
+          <h1 class="page-title">命理透视页</h1>
+          <p class="page-copy">这一页专门解释“为什么会这样”，不重复堆 K 线图结果。</p>
+        </div>
+
+        <nav class="panel-nav">
+          <a class="panel-nav__link" data-report-nav href="kline.html">K线总览</a>
+          <a class="panel-nav__link" data-report-nav href="analysis.html">命理透视</a>
+          <a class="panel-nav__link" data-report-nav href="year-detail.html">流年详情</a>
+        </nav>
+      </div>
+
+      <div class="grid-2">
+        <article class="panel">
+          <h2 class="section-title">命局结构</h2>
+          <p class="section-subtitle">工程上建议拆成日主、四柱、十神结构三个可复用块。</p>
+          <div class="tag-list">
+            <span class="tag">年柱 己巳</span>
+            <span class="tag">月柱 丙子</span>
+            <span class="tag">日柱 丙寅</span>
+            <span class="tag">时柱 甲午</span>
+          </div>
+          <ul class="list">
+            <li>日主丙火偏旺，行动主动，决策速度快。</li>
+            <li>水火冲突明显，阶段起伏大，容易在扩张期承压。</li>
+            <li>命局适合先立结构，再提增量。</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2 class="section-title">五行能量</h2>
+          <p class="section-subtitle">后续可替换成雷达图或条形图，当前只保留字段落点。</p>
+          <div class="grid-2">
+            <div class="panel">
+              <div class="metric-card__label">木</div>
+              <div class="metric-card__value">58</div>
+            </div>
+            <div class="panel">
+              <div class="metric-card__label">火</div>
+              <div class="metric-card__value">82</div>
+            </div>
+            <div class="panel">
+              <div class="metric-card__label">土</div>
+              <div class="metric-card__value">46</div>
+            </div>
+            <div class="panel">
+              <div class="metric-card__label">金</div>
+              <div class="metric-card__value">24</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-section grid-2">
+      <article class="panel">
+        <h2 class="section-title">性格与倾向</h2>
+        <ul class="list">
+          <li>核心性格向量偏主导型，喜欢自己掌控节奏。</li>
+          <li>遇到机会会快速前冲，但需要防止短期情绪驱动。</li>
+          <li>适合目标明确、能持续迭代的环境。</li>
+        </ul>
+      </article>
+
+      <article class="panel">
+        <h2 class="section-title">当前命理解读</h2>
+        <ul class="list">
+          <li>当前阶段更适合积累资源和沉淀方法论。</li>
+          <li>如果要推进大动作，优先选可控、可验证、可复用的方向。</li>
+          <li>建议把“高波动决策”拆成几次小试验。</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <script src="static/ui-shell.js"></script>
+</body>
+</html>
